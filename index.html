@@ -35,6 +35,7 @@
       <h1>Beyond the<br><span class="grad">Chat Window</span></h1>
       <div class="tagline">How AI Is Changing the Way We Build Software</div>
       <div style="font-size:20px"><b>Janarthan Jeyachandran</b> <span class="sub">· Senior Software Engineer, SenzMate Pvt Ltd</span></div>
+      <img class="co-logo" src="images/senzmate-logo.png" alt="SenzMate logo">
       <div class="sub" style="font-size:17px">IEEE Student Branch · Rajarata University of Sri Lanka</div>
       <div class="tiny">Press → to begin · O for slide index · N for notes</div>
     </div>
@@ -112,12 +113,55 @@
 <section class="slide" data-sec="opening">
   <div class="head"><div class="kicker">What is actually changing</div><h2>Three Shifts Happening Right Now</h2></div>
   <div class="row fill">
-    <div class="g3 w60" style="flex:1">
+    <div class="col shifts">
       <div class="card acc"><span class="ico">⌨️ → 🧭</span><h3>Typing → Directing</h3><p>You describe intent; AI drafts. Your value becomes judgement, design and review.</p></div>
       <div class="card acc2"><span class="ico">💬 → ⚙️</span><h3>Answering → Doing</h3><p>AI moves from giving text to taking actions: running code, calling APIs, opening PRs.</p></div>
       <div class="card warn"><span class="ico">🔧 → 🤝</span><h3>Tool → Teammate</h3><p>Background agents work on tasks in parallel while you focus on something else.</p></div>
     </div>
-    <div class="ph w30" data-src="images/dev-with-ai.jpg" data-label="Developer working with AI"></div>
+    <svg class="demo-anim dev-anim" viewBox="0 0 360 520" role="img" aria-label="A developer describes a task, an AI robot writes the code and runs the tests, and the developer reviews it and decides to ship" style="flex:0 0 372px">
+      <rect class="win" x="24" y="10" width="312" height="178" rx="12"/>
+      <circle cx="42" cy="28" r="4" class="dr"/><circle cx="56" cy="28" r="4" class="dy"/><circle cx="70" cy="28" r="4" class="dg"/>
+      <text class="dfile" x="88" y="32">login.py</text>
+      <rect class="d dline ln" x="52" y="52" width="150" height="7" rx="3.5" style="animation-name:dl0"/><rect class="d dline ln g" x="68" y="68" width="200" height="7" rx="3.5" style="animation-name:dl1"/><rect class="d dline ln g" x="68" y="84" width="170" height="7" rx="3.5" style="animation-name:dl2"/><rect class="d dline ln g" x="84" y="100" width="215" height="7" rx="3.5" style="animation-name:dl3"/><rect class="d dline ln g" x="84" y="116" width="140" height="7" rx="3.5" style="animation-name:dl4"/><rect class="d dline ln g" x="68" y="132" width="190" height="7" rx="3.5" style="animation-name:dl5"/>
+      <rect class="d x dscan" x="34" y="48" width="292" height="16" rx="4" style="animation-name:dscan"/>
+      <rect class="dbar" x="34" y="152" width="292" height="26" rx="6"/>
+      <text class="d x dst" x="46" y="170" style="animation-name:ds0">$ pytest … running</text>
+      <text class="d x dst ok" x="46" y="170" style="animation-name:ds1">✓ 12 passed</text>
+      <rect class="dstand" x="166" y="188" width="28" height="24" />
+      <path class="flow d x" d="M268 288 C 268 240, 240 215, 210 190" style="animation-name:dflow"/>
+      <g class="d x" style="animation-name:db0"><rect class="dbub" x="16" y="218" width="178" height="38" rx="12"/><path class="dbub" d="M102 255 L110 268 L118 255"/><rect class="dbubfix" x="103" y="252" width="14" height="4"/><text class="dbtx" x="105.0" y="242">Add a login page</text></g>
+      <g class="d x" style="animation-name:db1"><rect class="dbub" x="160" y="218" width="184" height="38" rx="12"/><path class="dbub" d="M260 255 L268 268 L276 255"/><rect class="dbubfix" x="261" y="252" width="14" height="4"/><text class="dbtx" x="252.0" y="242">On it: editing 3 files</text></g>
+      <g class="d x" style="animation-name:db2"><rect class="dbub" x="182" y="218" width="162" height="38" rx="12"/><path class="dbub" d="M260 255 L268 268 L276 255"/><rect class="dbubfix" x="261" y="252" width="14" height="4"/><text class="dbtx" x="263.0" y="242">Tests pass ✓</text></g>
+      <g class="d x" style="animation-name:db3"><rect class="dbub" x="16" y="218" width="178" height="38" rx="12"/><path class="dbub" d="M102 255 L110 268 L118 255"/><rect class="dbubfix" x="103" y="252" width="14" height="4"/><text class="dbtx" x="105.0" y="242">Let me check this…</text></g>
+      <g class="d x" style="animation-name:db4"><rect class="dbub" x="16" y="218" width="178" height="38" rx="12"/><path class="dbub" d="M102 255 L110 268 L118 255"/><rect class="dbubfix" x="103" y="252" width="14" height="4"/><text class="dbtx" x="105.0" y="242">Looks good, ship it!</text></g>
+
+      <!-- developer -->
+      <path class="dshirt" d="M58 410 C 58 356, 84 340, 110 340 C 136 340, 162 356, 162 410 Z"/>
+      <g class="dhead" style="animation-name:dnod">
+        <rect class="dskin" x="99" y="326" width="22" height="20"/>
+        <circle class="dskin" cx="110" cy="304" r="31"/>
+        <path class="dhair" d="M78 304 C 72 268, 148 262, 142 304 C 136 288, 122 282, 108 288 C 96 290, 84 292, 78 304 Z"/>
+        <g class="dblink"><circle class="deye" cx="99" cy="306" r="3.4"/><circle class="deye" cx="121" cy="306" r="3.4"/></g>
+        <path class="dsmile" d="M100 319 Q110 327 120 319"/>
+      </g>
+      <!-- robot -->
+      <g class="dbot">
+        <path class="dant" d="M268 290 V276"/><circle class="dbulb" cx="268" cy="272" r="5"/>
+        <rect class="drob" x="232" y="290" width="72" height="54" rx="14"/>
+        <circle class="dreye" cx="254" cy="316" r="6"/><circle class="dreye" cx="282" cy="316" r="6"/>
+        <path class="dsmile rb" d="M258 331 Q268 337 278 331"/>
+        <rect class="drob" x="246" y="348" width="44" height="40" rx="10"/>
+        <circle class="dcore" cx="268" cy="367" r="7"/>
+      </g>
+      <!-- desk and laptop -->
+      <rect class="ddesk" x="10" y="410" width="340" height="12" rx="4"/>
+      <rect class="ddeskleg" x="36" y="422" width="10" height="22"/><rect class="ddeskleg" x="314" y="422" width="10" height="22"/>
+      <path class="dlap" d="M72 410 L82 372 H138 L148 410 Z"/>
+      <circle class="dlogo" cx="110" cy="391" r="5"/>
+      <g class="d x" style="animation-name:dty"><g class="dtype"><circle class="dskin" cx="66" cy="405" r="8"/></g><g class="dtype t2"><circle class="dskin" cx="154" cy="405" r="8"/></g></g>
+      <circle class="ddot" cx="116" cy="474" r="6"/><circle class="d x ddoton" cx="116" cy="474" r="6" style="animation-name:dd0"/><circle class="ddot" cx="148" cy="474" r="6"/><circle class="d x ddoton" cx="148" cy="474" r="6" style="animation-name:dd1"/><circle class="ddot" cx="180" cy="474" r="6"/><circle class="d x ddoton" cx="180" cy="474" r="6" style="animation-name:dd2"/><circle class="ddot" cx="212" cy="474" r="6"/><circle class="d x ddoton" cx="212" cy="474" r="6" style="animation-name:dd3"/><circle class="ddot" cx="244" cy="474" r="6"/><circle class="d x ddoton" cx="244" cy="474" r="6" style="animation-name:dd4"/>
+      <text class="d x dcap" x="180" y="506" style="animation-name:dc0">You describe the task</text><text class="d x dcap" x="180" y="506" style="animation-name:dc1">AI writes the code</text><text class="d x dcap" x="180" y="506" style="animation-name:dc2">AI runs the tests</text><text class="d x dcap" x="180" y="506" style="animation-name:dc3">You review the work</text><text class="d x dcap" x="180" y="506" style="animation-name:dc4">You decide: ship it</text>
+    </svg>
   </div>
   <aside class="notes">Shift 2 is the theme of the whole session: answering → doing.</aside>
 </section>
@@ -163,8 +207,8 @@
 
 <section class="slide" data-sec="trends">
   <div class="head"><div class="kicker">Category 1</div><h2>Chat Assistants — the Starting Point</h2></div>
-  <div class="row fill">
-    <div class="col w55">
+  <div class="row fill shot-row">
+    <div class="col txt">
       <table class="t">
         <tr><th>Tool</th><th>Good for</th><th>Link</th></tr>
         <tr><td>ChatGPT</td><td>General help, snippets, explanations</td><td><a class="lk" href="https://chatgpt.com">chatgpt.com</a></td></tr>
@@ -172,16 +216,18 @@
         <tr><td>Gemini</td><td>Google ecosystem, multimodal</td><td><a class="lk" href="https://gemini.google.com">gemini.google.com</a></td></tr>
         <tr><td>Google AI Studio</td><td>Free playground for the Gemini API</td><td><a class="lk" href="https://aistudio.google.com">aistudio.google.com</a></td></tr>
       </table>
-      <div class="card warn" style="margin-top:auto"><h3>⚠️ The limitation</h3><p><b>You</b> copy-paste between chat and code. The AI can't see your project, can't run anything, can't check if its answer works.</p></div>
     </div>
-    <div class="ph" style="flex:1" data-src="images/chat-ui.png" data-label="Chat assistant screenshot"></div>
+    <div class="col vis">
+      <div class="ph" data-src="images/chat-ui.png" data-label="Chat assistant screenshot"></div>
+      <div class="card warn"><h3>⚠️ The limitation</h3><p><b>You</b> copy-paste between chat and code. The AI can't see your project, can't run anything, can't check if its answer works.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="slide" data-sec="trends">
   <div class="head"><div class="kicker">Category 2</div><h2>AI Inside the Editor</h2></div>
-  <div class="row fill">
-    <div class="col w60">
+  <div class="row fill shot-row">
+    <div class="col txt">
       <table class="t">
         <tr><th>Tool</th><th>What it does</th><th>Link</th></tr>
         <tr><td>GitHub Copilot</td><td>Autocomplete, chat, agent mode, PR code review</td><td><a class="lk" href="https://github.com/features/copilot">copilot</a></td></tr>
@@ -189,16 +235,18 @@
         <tr><td>Windsurf</td><td>AI IDE with an agent ("Cascade")</td><td><a class="lk" href="https://windsurf.com">windsurf.com</a></td></tr>
         <tr><td>Cline</td><td>Open-source agent extension for VS Code</td><td><a class="lk" href="https://cline.bot">cline.bot</a></td></tr>
       </table>
-      <div class="card acc2" style="margin-top:auto"><h3>🎓 Student tip</h3><p>GitHub Copilot is free for verified students through <a class="lk" href="https://education.github.com">GitHub Education</a>.</p></div>
     </div>
-    <div class="ph" style="flex:1" data-src="images/ide-copilot.png" data-label="AI in the editor screenshot"></div>
+    <div class="col vis">
+      <div class="ph" data-src="images/ide-copilot.png" data-label="AI in the editor screenshot"></div>
+      <div class="card acc2"><h3>🎓 Student tip</h3><p>GitHub Copilot is free for verified students through <a class="lk" href="https://education.github.com">GitHub Education</a>.</p></div>
+    </div>
   </div>
 </section>
 
 <section class="slide" data-sec="trends">
   <div class="head"><div class="kicker">Category 3</div><h2>Agentic Coding Tools</h2></div>
-  <div class="row fill">
-    <div class="col w60">
+  <div class="row fill shot-row">
+    <div class="col txt">
       <table class="t">
         <tr><th>Tool</th><th>What it does</th><th>Link</th></tr>
         <tr><td>Claude Code</td><td>Agent in terminal / IDE / desktop — reads repo, edits, runs tests</td><td><a class="lk" href="https://claude.com/claude-code">claude.com</a></td></tr>
@@ -206,16 +254,18 @@
         <tr><td>Gemini CLI</td><td>Open-source terminal agent</td><td><a class="lk" href="https://github.com/google-gemini/gemini-cli">github</a></td></tr>
         <tr><td>Aider</td><td>Open-source pair programmer in the terminal</td><td><a class="lk" href="https://aider.chat">aider.chat</a></td></tr>
       </table>
-      <div class="keyline" style="margin-top:auto">You give a <b class="acc2">task</b>, not a prompt. It plans, edits many files, runs commands and checks the results.</div>
     </div>
-    <div class="ph" style="flex:1" data-src="images/terminal-agent.png" data-label="Terminal coding agent screenshot"></div>
+    <div class="col vis">
+      <div class="ph left" data-src="images/terminal-agent.png" data-label="Terminal coding agent screenshot"></div>
+      <div class="keyline">You give a <b class="acc2">task</b>, not a prompt. It plans, edits many files, runs commands and checks the results.</div>
+    </div>
   </div>
 </section>
 
 <section class="slide" data-sec="trends">
   <div class="head"><div class="kicker">Category 4</div><h2>Prompt-to-App Builders</h2></div>
-  <div class="row fill">
-    <div class="col w55">
+  <div class="row fill shot-row">
+    <div class="col txt">
       <table class="t">
         <tr><th>Tool</th><th>Best for</th><th>Link</th></tr>
         <tr><td>v0 (Vercel)</td><td>React / Next.js UI from a prompt</td><td><a class="lk" href="https://v0.app">v0.app</a></td></tr>
@@ -223,12 +273,14 @@
         <tr><td>Lovable</td><td>Full apps + backend (Supabase)</td><td><a class="lk" href="https://lovable.dev">lovable.dev</a></td></tr>
         <tr><td>Replit</td><td>Build, run, deploy with an agent</td><td><a class="lk" href="https://replit.com">replit.com</a></td></tr>
       </table>
-      <div class="g2" style="margin-top:auto">
+    </div>
+    <div class="col vis">
+      <div class="ph" data-src="images/app-builder.png" data-label="Generated app screenshot"></div>
+      <div class="g2">
         <div class="card acc2"><h3>👍 Great for</h3><p>Prototypes, hackathons, MVPs, landing pages</p></div>
         <div class="card bad"><h3>👀 Watch out</h3><p>Code quality, security, scaling — still needs engineering</p></div>
       </div>
     </div>
-    <div class="ph" style="flex:1" data-src="images/app-builder.png" data-label="Generated app screenshot"></div>
   </div>
 </section>
 
@@ -240,94 +292,9 @@
     <tr><td>Test generation</td><td>Qodo</td><td><a class="lk" href="https://qodo.ai">qodo.ai</a></td></tr>
     <tr><td>Documentation</td><td>Mintlify</td><td><a class="lk" href="https://mintlify.com">mintlify.com</a></td></tr>
     <tr><td>Research</td><td>Perplexity, NotebookLM</td><td><a class="lk" href="https://perplexity.ai">perplexity.ai</a> · <a class="lk" href="https://notebooklm.google.com">notebooklm</a></td></tr>
-    <tr><td>Local / open models</td><td>LM Studio, Jan, Ollama, Hugging Face</td><td><span class="acc2">→ next slides</span></td></tr>
+    <tr><td>Local / open models</td><td>LM Studio, Jan, Ollama, Hugging Face</td><td><span class="acc2">→ after the build</span></td></tr>
   </table>
   <div class="keyline" style="margin-top:auto">AI now helps across the <b>whole</b> lifecycle — not only typing code.</div>
-</section>
-
-<section class="slide" data-sec="trends">
-  <div class="head"><div class="kicker">Category 6 · Local AI</div><h2>Run an LLM on Your Own Laptop</h2></div>
-  <div class="row fill">
-    <div class="col w35">
-      <div class="g2">
-        <div class="card acc2"><h3>💸 Free</h3><p>No API bill</p></div>
-        <div class="card acc2"><h3>🔒 Private</h3><p>Data never leaves</p></div>
-        <div class="card acc2"><h3>✈️ Offline</h3><p>Works without Wi-Fi</p></div>
-        <div class="card acc2"><h3>🧪 Experiment</h3><p>Try any open model</p></div>
-      </div>
-      <div class="stack" style="margin-top:6px">
-        <div style="background:var(--acc)">Desktop app <small>LM Studio / Jan</small></div>
-        <div style="background:var(--acc2)">Inference engine <small>llama.cpp</small></div>
-        <div style="background:var(--warn)">Model file <small>GGUF, quantized</small></div>
-        <div style="background:var(--muted)">Your hardware <small>CPU / GPU / RAM</small></div>
-      </div>
-    </div>
-    <div class="col" style="flex:1">
-      <table class="t compact">
-        <tr><th>Tool</th><th>What it is</th><th>Link</th></tr>
-        <tr><td>LM Studio</td><td>Discover, download, chat; local API server (llama.cpp, MLX on Mac)</td><td><a class="lk" href="https://lmstudio.ai">lmstudio.ai</a></td></tr>
-        <tr><td>Jan</td><td>Open-source ChatGPT-style app, runs offline on llama.cpp</td><td><a class="lk" href="https://www.jan.ai">jan.ai</a></td></tr>
-        <tr><td>llama.cpp</td><td>The C/C++ engine underneath both</td><td><a class="lk" href="https://github.com/ggml-org/llama.cpp">github</a></td></tr>
-        <tr><td>Ollama</td><td>CLI-first alternative, llama.cpp-based</td><td><a class="lk" href="https://ollama.com">ollama.com</a></td></tr>
-      </table>
-      <div class="g2 fill">
-        <div class="ph" data-src="images/lmstudio.png" data-label="LM Studio screenshot"></div>
-        <div class="ph" data-src="images/jan.png" data-label="Jan screenshot"></div>
-      </div>
-    </div>
-  </div>
-  <aside class="notes">Live demo: open LM Studio with Qwen 4B pre-downloaded. Turn Wi-Fi off and chat — it still works.</aside>
-</section>
-
-<section class="slide" data-sec="trends">
-  <div class="head"><div class="kicker">Local AI</div><h2>Which Model Fits My Laptop?</h2></div>
-  <div class="row fill">
-    <div class="col w60">
-      <table class="t">
-        <tr><th>Model (examples)</th><th>Size</th><th>RAM (Q4)</th><th>Good for</th></tr>
-        <tr><td>Qwen 3.5 2B</td><td>2B</td><td>~2 GB</td><td>Very fast; classify, extract, simple chat</td></tr>
-        <tr><td>Qwen 3.5 4B <span class="chip acc2">starter</span></td><td>4B</td><td>~3–4 GB</td><td>Basic tool calling, coding help</td></tr>
-        <tr><td>9B / 8B class<br><span class="tiny">Qwen, Gemma, Llama</span></td><td>8–9B</td><td>~6–8 GB</td><td>Stronger reasoning; 16 GB laptop</td></tr>
-      </table>
-      <p class="small sub">Find models: <a class="lk" href="https://huggingface.co/Qwen">huggingface.co/Qwen</a> · <a class="lk" href="https://lmstudio.ai/models">lmstudio.ai/models</a></p>
-    </div>
-    <div class="col" style="flex:1">
-      <div class="card"><h3>🗜️ Quantization</h3><p>Compress weights: Q8 → Q5 → Q4. Q4 ≈ ¼ of full size with small quality loss.</p></div>
-      <div class="card"><h3>📦 GGUF</h3><p>The model file format llama.cpp loads.</p></div>
-      <div class="card acc2"><h3>📏 Rule of thumb</h3><p><b style="color:var(--ink)">~0.6 GB RAM per billion params at Q4</b>, plus room for context.</p></div>
-    </div>
-  </div>
-  <aside class="notes">Check exact model names and sizes on Hugging Face on the day — the small-model lineup changes often.</aside>
-</section>
-
-<section class="slide" data-sec="trends">
-  <div class="head"><div class="kicker">Local AI</div><h2>Your Laptop Is Now an AI API</h2></div>
-  <div class="row fill">
-    <div class="col w55">
-      <p>LM Studio and Jan expose an <b class="acc2">OpenAI-compatible server</b>. Code written for OpenAI works locally by changing <b>one line</b>.</p>
-<pre class="code" data-lang="py">
-from openai import OpenAI
-
-»client = OpenAI(base_url="http://localhost:1234/v1", api_key="local")
-
-resp = client.chat.completions.create(
-    model="qwen3.5-4b",   # name as shown in LM Studio
-    messages=[{"role": "user", "content": "Explain recursion in 2 lines"}],
-)
-print(resp.choices[0].message.content)
-</pre>
-    </div>
-    <div class="col" style="flex:1">
-      <table class="t compact">
-        <tr><th>App</th><th>Default endpoint</th></tr>
-        <tr><td>LM Studio</td><td><code>localhost:1234/v1</code></td></tr>
-        <tr><td>Jan</td><td><code>localhost:1337/v1</code></td></tr>
-        <tr><td>Ollama</td><td><code>localhost:11434/v1</code></td></tr>
-      </table>
-      <div class="card acc"><h3>🔌 Plug it into</h3><p>n8n · VS Code extensions (Cline, Continue) · the agent we build later</p></div>
-      <div class="card warn"><h3>⚠️ Limits</h3><p>Slower, weaker reasoning, more tool-call mistakes. Great for learning — test carefully before production.</p></div>
-    </div>
-  </div>
 </section>
 
 <section class="slide" data-sec="trends">
@@ -355,16 +322,56 @@ print(resp.choices[0].message.content)
 <section class="slide" data-sec="trends">
   <div class="head"><div class="kicker">Live demo · ~4 min</div><h2>Same Task, Three Tools</h2></div>
   <div class="card acc" style="font-size:22px">Task: <b>"Add a dark-mode toggle to this web page."</b></div>
-  <div class="row fill">
-    <div class="g3 w60" style="flex:1">
-      <div class="card"><span class="num-badge">1</span><h3 style="display:inline">Chat assistant</h3><p style="margin-top:8px">Copy code in → copy answer out → paste → fix errors yourself.</p></div>
-      <div class="card"><span class="num-badge">2</span><h3 style="display:inline">IDE assistant</h3><p style="margin-top:8px">Select file, ask inline, accept the diff.</p></div>
-      <div class="card acc2"><span class="num-badge">3</span><h3 style="display:inline">Agentic tool</h3><p style="margin-top:8px">Describe the task — it finds files, edits, runs, verifies.</p></div>
+  <div class="g3 fill demo-cards">
+    <div class="card">
+      <div><span class="num-badge">1</span><h3 style="display:inline">Chat assistant</h3></div>
+      <p>Copy code in → copy answer out → paste → fix errors yourself.</p>
+      <svg class="demo-anim" viewBox="0 0 320 215" role="img" aria-label="You carry code between the editor and the chat window, then fix the error yourself">
+        <text class="lbl" x="70" y="17">Your editor</text><text class="lbl" x="250" y="17">Chat</text>
+        <rect class="win" x="10" y="24" width="120" height="120" rx="8"/><rect class="win" x="190" y="24" width="120" height="120" rx="8"/>
+        <rect class="ln" x="22" y="38" width="70" height="6" rx="3"/><rect class="ln" x="22" y="52" width="92" height="6" rx="3"/><rect class="ln" x="22" y="66" width="55" height="6" rx="3"/><rect class="ln" x="22" y="80" width="80" height="6" rx="3"/>
+        <g class="k" style="animation-name:c1paste"><rect class="ln g" x="22" y="94" width="86" height="6" rx="3"/><rect class="ln g" x="22" y="106" width="60" height="6" rx="3"/></g>
+        <g class="k" style="animation-name:c1err"><rect class="pill bad" x="22" y="118" width="96" height="20" rx="6"/><text class="pilltx" x="70" y="132">✗ Error</text></g>
+        <rect class="k bub" x="202" y="36" width="76" height="14" rx="5" style="animation-name:c1q"/>
+        <g class="k" style="animation-name:c1dots"><circle class="dot d1" cx="212" cy="72" r="4"/><circle class="dot d2" cx="226" cy="72" r="4"/><circle class="dot d3" cx="240" cy="72" r="4"/></g>
+        <g class="k" style="animation-name:c1a"><rect class="ln g" x="202" y="62" width="92" height="6" rx="3"/><rect class="ln g" x="202" y="76" width="70" height="6" rx="3"/><rect class="ln g" x="202" y="90" width="84" height="6" rx="3"/></g>
+        <g class="k" style="animation-name:c1code"><text class="emo" x="0" y="20">🧑</text><rect class="pill acc" x="28" y="2" width="58" height="24" rx="6"/><text class="pilltx" x="57" y="19">code</text></g>
+        <g class="k" style="animation-name:c1ans"><text class="emo" x="0" y="20">🧑</text><rect class="pill acc2" x="28" y="2" width="58" height="24" rx="6"/><text class="pilltx" x="57" y="19">answer</text></g>
+        <text class="cap k" x="160" y="206" style="animation-name:c1cap0">You copy the code in</text><text class="cap k" x="160" y="206" style="animation-name:c1cap1">AI writes an answer</text><text class="cap k" x="160" y="206" style="animation-name:c1cap2">You copy the answer out</text><text class="cap k" x="160" y="206" style="animation-name:c1cap3">You paste it in</text><text class="cap k" x="160" y="206" style="animation-name:c1cap4">Error! You fix it yourself</text>
+      </svg>
+      <div class="steps">👣 You: <b>5 steps</b></div>
     </div>
-    <div class="ph w30" data-src="images/demo-fallback.png" data-label="Fallback screenshot (if no internet)"></div>
+    <div class="card">
+      <div><span class="num-badge">2</span><h3 style="display:inline">IDE assistant</h3></div>
+      <p>Select file, ask inline, accept the diff.</p>
+      <svg class="demo-anim" viewBox="0 0 320 215" role="img" aria-label="You select code, ask inline, then accept the proposed diff">
+        <rect class="win" x="10" y="8" width="300" height="156" rx="8"/><text class="lbl" x="48" y="25">app.js</text>
+        <rect class="ln" x="34" y="36" width="120" height="6" rx="3"/><rect class="ln" x="34" y="52" width="190" height="6" rx="3"/><rect class="ln" x="34" y="68" width="150" height="6" rx="3"/><rect class="ln" x="34" y="84" width="96" height="6" rx="3"/><rect class="ln" x="34" y="100" width="170" height="6" rx="3"/><rect class="ln" x="34" y="116" width="110" height="6" rx="3"/>
+        <rect class="k sel" x="28" y="47" width="240" height="32" rx="4" style="animation-name:c2sel"/>
+        <g class="k" style="animation-name:c2ask"><rect class="ask" x="50" y="84" width="220" height="30" rx="7"/><text class="asktx" x="160" y="104">✨ Add a dark-mode toggle</text></g>
+        <g class="k" style="animation-name:c2diff"><rect class="dfr" x="28" y="48" width="264" height="14" rx="3"/><text class="mono bad" x="34" y="59">- color: white</text><rect class="dfg" x="28" y="64" width="264" height="14" rx="3"/><text class="mono good" x="34" y="75">+ color: var(--text)</text><rect class="dfg" x="28" y="80" width="264" height="14" rx="3"/><text class="mono good" x="34" y="91">+ toggleTheme()</text></g>
+        <g class="k btn" style="animation-name:c2btn"><rect class="pill acc2" x="200" y="130" width="98" height="24" rx="6"/><text class="pilltx" x="249" y="147">Accept</text></g>
+        <g class="k" style="animation-name:c2ok"><text class="done" x="160" y="186">✓ Change applied</text></g>
+        <g class="k" style="animation-name:c2cur"><path class="cur" d="M0 0 L0 17 L5 13 L8 20 L11 19 L8 12 L14 12 Z"/></g>
+        <text class="cap k" x="160" y="206" style="animation-name:c2cap0">You select the code</text><text class="cap k" x="160" y="206" style="animation-name:c2cap1">You ask inline</text><text class="cap k" x="160" y="206" style="animation-name:c2cap2">AI proposes a diff</text><text class="cap k" x="160" y="206" style="animation-name:c2cap3">You accept it</text>
+      </svg>
+      <div class="steps">👣 You: <b>3 steps</b></div>
+    </div>
+    <div class="card acc2">
+      <div><span class="num-badge">3</span><h3 style="display:inline">Agentic tool</h3></div>
+      <p>Describe the task — it finds files, edits, runs, verifies.</p>
+      <svg class="demo-anim" viewBox="0 0 320 215" role="img" aria-label="The agent finds files, edits, runs tests, fixes its own failure and verifies the result">
+        <path class="flow" d="M132 28 H188 M250 58 V88 M132 104 H188 M70 88 V58"/>
+        <rect class="win" x="14" y="8" width="118" height="46" rx="8"/><rect class="k lit" x="14" y="8" width="118" height="46" rx="8" style="animation-name:c3s0"/><text class="stn" x="24" y="37">🔍 Find</text><rect class="win" x="188" y="8" width="118" height="46" rx="8"/><rect class="k lit" x="188" y="8" width="118" height="46" rx="8" style="animation-name:c3s1"/><text class="stn" x="198" y="37">✏️ Edit</text><rect class="win" x="188" y="84" width="118" height="46" rx="8"/><rect class="k lit" x="188" y="84" width="118" height="46" rx="8" style="animation-name:c3s2"/><text class="stn" x="198" y="113">▶️ Run</text><rect class="win" x="14" y="84" width="118" height="46" rx="8"/><rect class="k lit" x="14" y="84" width="118" height="46" rx="8" style="animation-name:c3s3"/><text class="stn" x="24" y="113">✅ Verify</text>
+        <rect class="term" x="14" y="146" width="292" height="30" rx="6"/><text class="mono log  k" x="160" y="166" style="animation-name:c3log0">🧑 "Add a dark-mode toggle"</text><text class="mono log  k" x="160" y="166" style="animation-name:c3log1">$ grep theme → 3 files</text><text class="mono log  k" x="160" y="166" style="animation-name:c3log2">editing theme.css, app.js</text><text class="mono log bad k" x="160" y="166" style="animation-name:c3log3">$ npm test → ✗ 1 failed</text><text class="mono log  k" x="160" y="166" style="animation-name:c3log4">fixing app.js</text><text class="mono log good k" x="160" y="166" style="animation-name:c3log5">$ npm test → ✓ 12 passed</text><text class="mono log  k" x="160" y="166" style="animation-name:c3log6">opening page → dark mode on</text><text class="mono log good k" x="160" y="166" style="animation-name:c3log7">✓ Done, ready for review</text>
+        <g class="k" style="animation-name:c3bot"><text class="bot" x="0" y="24">🤖</text></g>
+        <text class="cap k" x="160" y="206" style="animation-name:c3cap0">You describe the task</text><text class="cap k" x="160" y="206" style="animation-name:c3cap1">It finds the files</text><text class="cap k" x="160" y="206" style="animation-name:c3cap2">It edits the code</text><text class="cap k" x="160" y="206" style="animation-name:c3cap3">A test fails, it notices</text><text class="cap k" x="160" y="206" style="animation-name:c3cap4">It fixes and re-runs</text><text class="cap k" x="160" y="206" style="animation-name:c3cap5">It verifies the result</text><text class="cap k" x="160" y="206" style="animation-name:c3cap6">Done. You review it</text>
+      </svg>
+      <div class="steps">👣 You: <b>2 steps</b></div>
+    </div>
   </div>
   <div class="row"><span class="chip">⏱ time taken</span><span class="chip">👣 steps <b>you</b> did</span><span class="chip">✅ quality</span></div>
-  <aside class="notes">Keep to ~4 minutes. After each, ask: who did the work here — you or the AI?</aside>
+  <aside class="notes">Animations loop every 12 seconds: let one cycle play, point out who does the work in each, then run the live demo in Claude. Keep to ~4 minutes. After each, ask: who did the work here — you or the AI?</aside>
 </section>
 
 <!-- ===================== 03 THE SHIFT ===================== -->
@@ -475,13 +482,13 @@ print(resp.choices[0].message.content)
 <section class="slide" data-sec="shift">
   <div class="head"><div class="kicker">Real-life solutions</div><h2>Agents in the Real World</h2></div>
   <div class="g4 fill">
-    <div class="card col"><div class="ph fill" data-src="images/use-support.png" data-label="Support agent"></div><h3>🎧 Customer support</h3><p>Reads ticket → checks order DB → refunds or escalates</p></div>
-    <div class="card col"><div class="ph fill" data-src="images/use-coding.png" data-label="Coding agent"></div><h3>💻 Coding</h3><p>Issue → code fix → tests → pull request</p></div>
-    <div class="card col"><div class="ph fill" data-src="images/use-data.png" data-label="Data agent"></div><h3>📊 Data analysis</h3><p>Question in English → SQL → run → chart</p></div>
-    <div class="card col"><div class="ph fill" data-src="images/use-ops.png" data-label="Ops agent"></div><h3>🚨 DevOps / incidents</h3><p>Alert → read logs → find cause → suggest fix</p></div>
+    <div class="card col"><svg class="demo-anim use-anim" viewBox="0 0 250 326" role="img" aria-label="Support agent reads a ticket, checks the order, applies the refund policy and refunds the customer"><path class="flow" d="M16 12 V286"/><rect class="urow" x="34" y="4" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="4" width="212" height="66" rx="9" style="animation-name:ulit0"/><g class="u" style="animation-name:uin0"><text class="ut" x="44" y="30">🎫 Ticket #1042</text><text class="ud" x="44" y="54">Where is my refund?</text></g><rect class="urow" x="34" y="78" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="78" width="212" height="66" rx="9" style="animation-name:ulit1"/><g class="u" style="animation-name:uin1"><text class="ut" x="44" y="104">🗄 check_order(1042)</text><text class="ud" x="44" y="128">Paid, not delivered</text></g><rect class="urow" x="34" y="152" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="152" width="212" height="66" rx="9" style="animation-name:ulit2"/><g class="u" style="animation-name:uin2"><text class="ut" x="44" y="178">📋 Refund policy</text><text class="ud good" x="44" y="202">Eligible ✓</text></g><rect class="urow" x="34" y="226" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="226" width="212" height="66" rx="9" style="animation-name:ulit3"/><g class="u" style="animation-name:uin3"><text class="ut" x="44" y="252">💸 issue_refund(1042)</text><text class="ud good" x="44" y="276">✓ Refund sent</text></g><g class="u x" style="animation-name:ubot"><text class="bot" x="0" y="0" dominant-baseline="hanging">🤖</text></g><text class="u ucap" x="125" y="316" style="animation-name:ucap0">Reads the ticket</text><text class="u ucap" x="125" y="316" style="animation-name:ucap1">Checks the order DB</text><text class="u ucap" x="125" y="316" style="animation-name:ucap2">Applies the policy</text><text class="u ucap" x="125" y="316" style="animation-name:ucap3">Refunds, or escalates if unsure</text></svg><h3>🎧 Customer support</h3><p>Reads ticket → checks order DB → refunds or escalates</p></div>
+    <div class="card col"><svg class="demo-anim use-anim" viewBox="0 0 250 326" role="img" aria-label="Coding agent reads an issue, writes a fix, runs the tests and opens a pull request"><path class="flow" d="M16 12 V286"/><rect class="urow" x="34" y="4" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="4" width="212" height="66" rx="9" style="animation-name:ulit0"/><g class="u" style="animation-name:uin0"><text class="ut" x="44" y="30">🐛 Issue #87</text><text class="ud" x="44" y="54">Login button does nothing</text></g><rect class="urow" x="34" y="78" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="78" width="212" height="66" rx="9" style="animation-name:ulit1"/><g class="u" style="animation-name:uin1"><text class="ut" x="44" y="104">✏️ Edits auth.js</text><text class="um good" x="44" y="128">+3</text><text class="um bad" x="74" y="128">−1</text><rect class="udg" x="106" y="119" width="60" height="10" rx="2"/><rect class="udr" x="170" y="119" width="20" height="10" rx="2"/></g><rect class="urow" x="34" y="152" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="152" width="212" height="66" rx="9" style="animation-name:ulit2"/><g class="u" style="animation-name:uin2"><text class="ut" x="44" y="178">🧪 npm test</text><rect class="utrack" x="44" y="193" width="92" height="10" rx="5"/><rect class="u ubar" x="44" y="193" width="92" height="10" rx="5" style="animation-name:ubar"/><text class="um good u" x="144" y="202" style="animation-name:uresult">12 passed ✓</text></g><rect class="urow" x="34" y="226" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="226" width="212" height="66" rx="9" style="animation-name:ulit3"/><g class="u" style="animation-name:uin3"><text class="ut" x="44" y="252">🔀 Pull request #88</text><text class="ud good" x="44" y="276">✓ Opened for review</text></g><g class="u x" style="animation-name:ubot"><text class="bot" x="0" y="0" dominant-baseline="hanging">🤖</text></g><text class="u ucap" x="125" y="316" style="animation-name:ucap0">Reads the issue</text><text class="u ucap" x="125" y="316" style="animation-name:ucap1">Writes the fix</text><text class="u ucap" x="125" y="316" style="animation-name:ucap2">Runs the tests</text><text class="u ucap" x="125" y="316" style="animation-name:ucap3">Opens a pull request</text></svg><h3>💻 Coding</h3><p>Issue → code fix → tests → pull request</p></div>
+    <div class="card col"><svg class="demo-anim use-anim" viewBox="0 0 250 326" role="img" aria-label="Data agent reads a question, writes SQL, runs the query and draws a chart"><path class="flow" d="M16 12 V286"/><rect class="urow" x="34" y="4" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="4" width="212" height="66" rx="9" style="animation-name:ulit0"/><g class="u" style="animation-name:uin0"><text class="ut" x="44" y="30">💬 Question</text><text class="ud" x="44" y="54">Top courses by signups?</text></g><rect class="urow" x="34" y="78" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="78" width="212" height="66" rx="9" style="animation-name:ulit1"/><g class="u" style="animation-name:uin1"><text class="ut" x="44" y="104">🧾 Writes SQL</text><text class="um" x="44" y="128">SELECT course, COUNT(*)</text></g><rect class="urow" x="34" y="152" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="152" width="212" height="66" rx="9" style="animation-name:ulit2"/><g class="u" style="animation-name:uin2"><text class="ut" x="44" y="178">▶️ run_query()</text><text class="ud good" x="44" y="202">✓ 3 rows returned</text></g><rect class="urow" x="34" y="226" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="226" width="212" height="66" rx="9" style="animation-name:ulit3"/><g class="u" style="animation-name:uin3"><text class="ut" x="44" y="252">📊 Chart</text><text class="ud" x="44" y="276">Sample data</text><rect class="u ugrow" x="152" y="238" width="20" height="46" rx="3" style="animation-name:ugrow;fill:var(--acc2)"/><rect class="u ugrow" x="178" y="253" width="20" height="31" rx="3" style="animation-name:ugrow;fill:var(--acc)"/><rect class="u ugrow" x="204" y="266" width="20" height="18" rx="3" style="animation-name:ugrow;fill:var(--warn)"/></g><g class="u x" style="animation-name:ubot"><text class="bot" x="0" y="0" dominant-baseline="hanging">🤖</text></g><text class="u ucap" x="125" y="316" style="animation-name:ucap0">Reads the question</text><text class="u ucap" x="125" y="316" style="animation-name:ucap1">Turns it into SQL</text><text class="u ucap" x="125" y="316" style="animation-name:ucap2">Runs the query</text><text class="u ucap" x="125" y="316" style="animation-name:ucap3">Draws the chart</text></svg><h3>📊 Data analysis</h3><p>Question in English → SQL → run → chart</p></div>
+    <div class="card col"><svg class="demo-anim use-anim" viewBox="0 0 250 326" role="img" aria-label="Ops agent sees an alert, reads the logs, finds the cause and suggests a fix"><path class="flow" d="M16 12 V286"/><rect class="urow" x="34" y="4" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="4" width="212" height="66" rx="9" style="animation-name:ulit0"/><rect class="u upulse x" x="34" y="4" width="212" height="66" rx="9" style="animation-name:upulse"/><g class="u" style="animation-name:uin0"><text class="ut" x="44" y="30">🚨 Alert: API errors</text><text class="ud bad" x="44" y="54">500 errors rising</text></g><rect class="urow" x="34" y="78" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="78" width="212" height="66" rx="9" style="animation-name:ulit1"/><g class="u" style="animation-name:uin1"><text class="ut" x="44" y="104">📜 read_logs(api)</text><text class="um u x" x="44" y="128" style="animation-name:uscan">scanning...</text><text class="um bad u" x="44" y="128" style="animation-name:ufound">ERROR db pool exhausted</text></g><rect class="urow" x="34" y="152" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="152" width="212" height="66" rx="9" style="animation-name:ulit2"/><g class="u" style="animation-name:uin2"><text class="ut" x="44" y="178">🔎 Root cause</text><text class="ud" x="44" y="202">DB connection pool is full</text></g><rect class="urow" x="34" y="226" width="212" height="66" rx="9"/><rect class="u ulit" x="34" y="226" width="212" height="66" rx="9" style="animation-name:ulit3"/><g class="u" style="animation-name:uin3"><text class="ut" x="44" y="252">💡 Suggested fix</text><text class="ud good" x="44" y="276">Raise pool size, ask human</text></g><g class="u x" style="animation-name:ubot"><text class="bot" x="0" y="0" dominant-baseline="hanging">🤖</text></g><text class="u ucap" x="125" y="316" style="animation-name:ucap0">Sees the alert</text><text class="u ucap" x="125" y="316" style="animation-name:ucap1">Reads the logs</text><text class="u ucap" x="125" y="316" style="animation-name:ucap2">Finds the cause</text><text class="u ucap" x="125" y="316" style="animation-name:ucap3">Suggests a fix</text></svg><h3>🚨 DevOps / incidents</h3><p>Alert → read logs → find cause → suggest fix</p></div>
   </div>
   <div class="keyline">💭 What's one task in <b>your</b> university life an agent could do?</div>
-  <aside class="notes">Take 2–3 answers from the audience. Keep them in mind — we may use one in the Build section.</aside>
+  <aside class="notes">Each card replays a sample agent run every 12 seconds; the data is made up to show the steps. Take 2–3 answers from the audience. Keep them in mind — we may use one in the Build section.</aside>
 </section>
 
 <section class="slide" data-sec="shift">
@@ -501,35 +508,49 @@ print(resp.choices[0].message.content)
       </div>
       <div class="row small"><span>Run locally: <code>npx n8n</code> → <code>localhost:5678</code></span><span>· <a class="lk" href="https://n8n.io/workflows">Templates</a> · <a class="lk" href="https://docs.n8n.io/advanced-ai/">AI docs</a></span></div>
     </div>
-    <div class="ph" style="flex:1" data-src="images/n8n-agent-node.png" data-label="n8n AI Agent node screenshot"></div>
+    <svg class="demo-anim n8n-anim" viewBox="0 0 446 496" style="flex:1" role="img" aria-label="Sample n8n workflow: a chat trigger starts the AI Agent, which uses memory, asks the model, calls the check_book tool, then replies. The Gmail tool stays unused.">
+      <defs><pattern id="n8nDots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" class="gd"/></pattern></defs>
+      <rect class="cv" x="1" y="1" width="444" height="494" rx="14"/><rect x="1" y="34" width="444" height="284" fill="url(#n8nDots)"/>
+      <text class="ttl" x="16" y="23">Sample workflow: Campus Helpdesk</text>
+      <path class="wire solid" d="M104 96 H150 M296 96 H342"/>
+      <rect class="nd" x="16" y="60" width="88" height="72" rx="12"/><rect class="n x ndlit" x="16" y="60" width="88" height="72" rx="12" style="animation-name:nlt"/><text class="ic" x="60.0" y="92">💬</text><text class="nl" x="60.0" y="119">Chat trigger</text><rect class="nd" x="150" y="60" width="146" height="72" rx="12"/><rect class="n x ndlit" x="150" y="60" width="146" height="72" rx="12" style="animation-name:nla"/><text class="ic" x="223.0" y="92">🤖</text><text class="nl" x="223.0" y="119">AI Agent</text><rect class="nd" x="342" y="60" width="88" height="72" rx="12"/><rect class="n x ndlit" x="342" y="60" width="88" height="72" rx="12" style="animation-name:nlr"/><text class="ic" x="386.0" y="92">📤</text><text class="nl" x="386.0" y="119">Reply</text>
+      <g class="n x" style="animation-name:nlp1"><rect class="pl" x="256" y="46" width="52" height="20" rx="10"/><text class="pltx" x="282" y="60">loop 1</text></g>
+      <g class="n x" style="animation-name:nlp2"><rect class="pl" x="256" y="46" width="52" height="20" rx="10"/><text class="pltx" x="282" y="60">loop 2</text></g>
+      <path class="wire" d="M180 132 L60 206"/><circle class="nd" cx="60" cy="238" r="32"/><circle class="n x ndlit" cx="60" cy="238" r="32" style="animation-name:nlm"/><text class="ic" x="60" y="247">🧠</text><text class="nl" x="60" y="288">Chat Model</text><text class="ns" x="60" y="304">Claude</text><path class="wire" d="M205 132 L170 206"/><circle class="nd" cx="170" cy="238" r="32"/><circle class="n x ndlit" cx="170" cy="238" r="32" style="animation-name:nlb"/><text class="ic" x="170" y="247">🗂</text><text class="nl" x="170" y="288">Memory</text><text class="ns" x="170" y="304">Window buffer</text><path class="wire" d="M240 132 L280 206"/><circle class="nd" cx="280" cy="238" r="32"/><circle class="n x ndlit" cx="280" cy="238" r="32" style="animation-name:nlk"/><text class="ic" x="280" y="247">📚</text><text class="nl" x="280" y="288">Tool</text><text class="ns" x="280" y="304">check_book</text><path class="wire" d="M266 132 L390 206"/><circle class="nd" cx="390" cy="238" r="32"/><text class="ic" x="390" y="247">✉️</text><text class="nl" x="390" y="288">Tool</text><text class="ns" x="390" y="304">Gmail (unused)</text>
+      <circle class="n x pkt" r="6" style="animation-name:npa"/><circle class="n x pkt" r="6" style="animation-name:npb"/><circle class="n x pkt" r="6" style="animation-name:npm"/><circle class="n x pkt" r="6" style="animation-name:npk"/><circle class="n x pkt" r="6" style="animation-name:npr"/>
+      <rect class="lgb" x="14" y="326" width="418" height="158" rx="10"/><text class="lgh" x="28" y="346">EXECUTION LOG</text>
+      <text class="n lg" x="28" y="366" style="animation-name:nlog0">⚡ Trigger: &quot;Is Clean Code available?&quot;</text><text class="n lg" x="28" y="384" style="animation-name:nlog1">🗂 Memory: loaded past messages</text><text class="n lg" x="28" y="402" style="animation-name:nlog2">🧠 Model: call check_book(&quot;Clean Code&quot;)</text><text class="n lg" x="28" y="420" style="animation-name:nlog3">🔧 check_book → 2 copies available</text><text class="n lg" x="28" y="438" style="animation-name:nlog4">🧠 Model: I have enough, write the answer</text><text class="n lg" x="28" y="456" style="animation-name:nlog5">🗂 Memory: saved this exchange</text><text class="n lg" x="28" y="474" style="animation-name:nlog6">📤 Reply: &quot;Yes, 2 copies are in.&quot;</text>
+    </svg>
   </div>
-  <aside class="notes">Same four parts we'll learn later — model, tools, memory, loop — just drag-and-drop. Good bridge into the Agents section.</aside>
+  <aside class="notes">The animation is a sample, not a real n8n export. Point out that the agent never calls Gmail: it chooses tools based on the question. Same four parts we'll learn later — model, tools, memory, loop — just drag-and-drop. Good bridge into the Agents section.</aside>
 </section>
 
 <section class="slide" data-sec="shift">
   <div class="head"><div class="kicker">n8n example 1</div><h2>Student Support Email Agent</h2></div>
-  <div class="row fill">
-    <div class="col w60" style="gap:14px">
+  <div class="ph contain" style="flex:none;height:331px" data-src="images/n8n-email-agent.png" data-label="n8n email agent workflow"></div>
+  <div class="row fill flow-compact">
+    <div class="col" style="flex:1">
       <div class="flow">
         <div class="node trg">📥 Gmail Trigger<small>new email</small></div><span class="ar">→</span>
         <div class="node ai"><b>🤖 AI Agent</b><small>Gemini / Claude · memory per sender</small></div><span class="ar">→</span>
         <div class="node">❓ IF confident?</div>
       </div>
-      <div class="subnodes" style="margin-left:150px">
+      <div class="subnodes">
         <div class="node">📄 Sheets: FAQ</div><div class="node">🎓 Sheets: Student records</div><div class="node">🌐 HTTP: Library API</div>
       </div>
-      <div class="flow" style="margin-left:60px"><span class="ar">✅ yes →</span><div class="node ok">✉️ Gmail: send reply</div></div>
-      <div class="flow" style="margin-left:60px"><span class="ar">🤔 no →</span><div class="node hum">💬 Slack: staff approve draft</div><span class="ar">→</span><div class="node">⏸ Wait</div><span class="ar">→</span><div class="node ok">✉️ Gmail: send</div></div>
-      <div class="flow" style="margin-left:60px"><span class="ar">then →</span><div class="node">📊 Sheets: log conversation</div></div>
       <div class="row" style="margin-top:auto"><span class="chip acc2">real tools</span><span class="chip acc2">memory</span><span class="chip acc2">human-in-the-loop</span><span class="chip acc2">logging</span></div>
     </div>
-    <div class="ph" style="flex:1" data-src="images/n8n-email-agent.png" data-label="n8n email agent workflow"></div>
+    <div class="col" style="flex:1">
+      <div class="flow"><span class="ar">✅ yes →</span><div class="node ok">✉️ Gmail: send reply</div></div>
+      <div class="flow"><span class="ar">🤔 no →</span><div class="node hum">💬 Slack: staff approve draft</div><span class="ar">→</span><div class="node">⏸ Wait</div><span class="ar">→</span><div class="node ok">✉️ Gmail: send</div></div>
+      <div class="flow"><span class="ar">then →</span><div class="node">📊 Sheets: log conversation</div></div>
+    </div>
   </div>
   <aside class="notes">Live demo option (~4 min): show this workflow running on a test Gmail account.</aside>
 </section>
 
 <section class="slide" data-sec="shift">
-  <div class="head"><div class="kicker">n8n example 2</div><h2>GitHub Issue Triage Agent</h2></div>
+  <div class="head"><div class="kicker">n8n example 2 · your take-home</div><h2>GitHub Issue Triage Agent</h2></div>
   <div class="flow">
     <div class="node trg">🐙 GitHub Trigger<small>issue opened</small></div><span class="ar">→</span>
     <div class="node ai"><b>🤖 AI Agent</b><small>search similar issues · read docs · Code node</small></div><span class="ar">→</span>
@@ -539,43 +560,30 @@ print(resp.choices[0].message.content)
   </div>
   <div class="row fill">
     <div class="col w55">
-      <h3>Ideas you can build in an afternoon</h3>
+      <h3>Or build one of these instead</h3>
       <div class="card"><p>🤖 <b style="color:var(--ink)">Telegram bot</b> answering questions from your lecture notes (RAG with a vector store node)</p></div>
       <div class="card"><p>📰 <b style="color:var(--ink)">Daily digest</b>: RSS + web → AI summary → email</p></div>
       <div class="card"><p>🎟 <b style="color:var(--ink)">Event registration assistant</b>: Google Form → AI checks → confirmation email</p></div>
     </div>
-    <div class="ph" style="flex:1" data-src="images/n8n-issue-triage.png" data-label="n8n issue triage workflow"></div>
-  </div>
-</section>
-
-<section class="slide" data-sec="shift">
-  <div class="head"><div class="kicker">⏩ optional · Google's options</div><h2>Google Opal &amp; Cloud Workflows</h2></div>
-  <div class="row fill">
-    <div class="col w60">
-      <table class="t compact">
-        <tr><th>Tool</th><th>What it is</th><th>Good for</th></tr>
-        <tr><td>Google Opal <span class="chip">Labs</span><br><a class="lk small" href="https://opal.withgoogle.com">opal.withgoogle.com</a></td><td>Describe a mini AI app in plain English → visual workflow of prompts, models, tools</td><td>Quick AI mini-apps, no code</td></tr>
-        <tr><td>Cloud Workflows<br><a class="lk small" href="https://cloud.google.com/workflows">cloud.google.com</a></td><td>Serverless orchestration of APIs + Gemini / Vertex AI steps (YAML)</td><td>Production pipelines on GCP</td></tr>
-        <tr><td>Agent Builder / ADK<br><a class="lk small" href="https://cloud.google.com/products/agent-builder">cloud.google.com</a></td><td>Build, deploy, manage agents on Google Cloud</td><td>Enterprise agents</td></tr>
-      </table>
-      <div class="kicker" style="margin-top:6px">Cloud Workflows example</div>
-      <div class="flow">
-        <div class="node trg">📄 Storage: new PDF</div><span class="ar">→</span>
-        <div class="node">🔎 Document AI: extract</div><span class="ar">→</span>
-        <div class="node ai">✨ Gemini: summarise + classify</div><span class="ar">→</span>
-        <div class="node">🗄 Firestore: save</div><span class="ar">→</span>
-        <div class="node ok">✉️ Notify</div>
-      </div>
+    <div class="card acc2 homework" style="flex:1">
+      <h3 class="acc2">🏠 Take-home: build this agent</h3>
+      <ol>
+        <li><b>Start n8n:</b> <a class="lk" href="https://n8n.io">n8n Cloud</a> trial, or <code>npx n8n</code>. GitHub must reach it, so a local install needs a tunnel such as ngrok.</li>
+        <li><b>Make a test repo</b> and add a GitHub token as an n8n credential.</li>
+        <li><b>Add a model:</b> get a Gemini API key at <a class="lk" href="https://aistudio.google.com">AI Studio</a> and connect it to the AI Agent.</li>
+        <li><b>Wire the nodes:</b> GitHub Trigger → AI Agent + Structured Output Parser → GitHub (labels, comment).</li>
+        <li><b>Test:</b> open a bug, a question and a duplicate issue. Check each label and comment.</li>
+      </ol>
+      <p class="small">Stuck? <a class="lk" href="https://n8n.io/workflows">Templates</a> · <a class="lk" href="https://docs.n8n.io/advanced-ai/">AI docs</a></p>
     </div>
-    <div class="ph" style="flex:1" data-src="images/google-opal.png" data-label="Google Opal screenshot"></div>
   </div>
-  <aside class="notes">Opal availability varies by country — check before the session.</aside>
+  <aside class="notes">Don't build this live. Walk through the flow, then set it as homework: students build this agent or one of the three ideas after the session.</aside>
 </section>
 
 <section class="slide" data-sec="shift">
   <div class="head"><div class="kicker">Choosing</div><h2>Code vs No-Code: When to Use Which</h2></div>
   <table class="t">
-    <tr><th></th><th>No-code (n8n, Opal, Zapier)</th><th>Code (SDKs, frameworks)</th></tr>
+    <tr><th></th><th>No-code (n8n, Zapier)</th><th>Code (SDKs, frameworks)</th></tr>
     <tr><td>First version</td><td class="acc2">Minutes – hours</td><td>Hours – days</td></tr>
     <tr><td>Integrations</td><td class="acc2">Hundreds ready-made</td><td>Write your own</td></tr>
     <tr><td>Custom logic</td><td>Limited (Code node helps)</td><td class="acc2">Unlimited</td></tr>
@@ -752,7 +760,34 @@ def create_ticket(title: str, category: str,
       <div class="card acc2"><h3>🤖 Coding agent</h3><p>Claude Code · Codex · Copilot agent · Cursor</p>
         <div style="margin-top:10px"><span class="chip">📖 Read</span><span class="chip">✏️ Edit</span><span class="chip">📝 Write</span><span class="chip">🔎 Grep / Glob</span><span class="chip">💻 Bash</span><span class="chip">🌐 Web fetch</span><span class="chip">✅ Todo list</span><span class="chip acc">➕ your MCP tools</span></div>
       </div>
-      <div class="ph fill" data-src="images/coding-agent-tools.png" data-label="Coding agent tool calls screenshot"></div>
+      <svg class="demo-anim cat" viewBox="0 0 520 290" role="img" aria-label="As you step through the trace, the agent moves to each tool while the terminal and auth.py change: a test fails, line 42 is found and fixed, then all tests pass">
+        <rect class="win" x="10" y="8" width="204" height="130" rx="9"/>
+        <rect class="term-ok tv v5" x="10" y="8" width="204" height="130" rx="9"/>
+        <text class="ttl" x="24" y="29">Terminal</text>
+        <text class="mono tv v1 v2 v3 v4 v5" x="24" y="56">$ pytest</text>
+        <text class="mono bad tv v1 v2 v3 v4" x="24" y="80">✗ 1 failed</text>
+        <text class="mono bad tv v1 v2 v3 v4" x="24" y="100">test_login_expired</text>
+        <text class="mono good tv v5" x="24" y="80">✓ all 48 passed</text>
+        <rect class="win" x="224" y="8" width="286" height="130" rx="9"/>
+        <text class="ttl" x="238" y="29">auth.py</text>
+        <rect class="hit tv v2 v3" x="230" y="69" width="274" height="20" rx="4"/>
+        <rect class="fix tv v4 v5" x="230" y="69" width="274" height="20" rx="4"/>
+        <text class="mono ln-n" x="236" y="58">41</text><text class="mono cl tv v3 v4 v5 " x="262" y="58" xml:space="preserve">now = time()</text>
+        <text class="mono ln-n" x="236" y="83">42</text>
+        <text class="mono cl tv v2 v3" x="262" y="83" xml:space="preserve">if token.expired_at &lt; now:</text>
+        <text class="mono good tv v4 v5" x="262" y="83" xml:space="preserve">if token.expired_at &lt;= now:</text>
+        <text class="mono ln-n" x="236" y="108">43</text><text class="mono cl tv v3 v4 v5 " x="262" y="108" xml:space="preserve">  raise Expired()</text>
+        <text class="mono ln-n" x="236" y="128">44</text><text class="mono cl tv v3 v4 v5 " x="262" y="128" xml:space="preserve">return token.user</text>
+        <path class="flow tv v1 v5" d="M65 170 V138"/><path class="flow tv v2" d="M195 170 L290 138"/><path class="flow tv v3" d="M325 170 L350 138"/><path class="flow tv v4" d="M455 170 L420 138"/>
+        <rect class="win" x="10" y="170" width="110" height="34" rx="9"/><rect class="lit tv v1 v5" x="10" y="170" width="110" height="34" rx="9"/><text class="ctp" x="65" y="192">💻 Bash</text><rect class="win" x="140" y="170" width="110" height="34" rx="9"/><rect class="lit tv v2" x="140" y="170" width="110" height="34" rx="9"/><text class="ctp" x="195" y="192">🔎 Grep</text><rect class="win" x="270" y="170" width="110" height="34" rx="9"/><rect class="lit tv v3" x="270" y="170" width="110" height="34" rx="9"/><text class="ctp" x="325" y="192">📖 Read</text><rect class="win" x="400" y="170" width="110" height="34" rx="9"/><rect class="lit tv v4" x="400" y="170" width="110" height="34" rx="9"/><text class="ctp" x="455" y="192">✏️ Edit</text>
+        <g class="catbot"><text class="bot cbob" x="0" y="240">🤖</text></g>
+        <text class="cap tv v0" x="260" y="280">Press → to start the trace</text>
+        <text class="cap tv v1" x="260" y="280">Runs the tests: one fails</text>
+        <text class="cap tv v2" x="260" y="280">Searches the code for the cause</text>
+        <text class="cap tv v3" x="260" y="280">Reads the code around it</text>
+        <text class="cap tv v4" x="260" y="280">Changes &lt; to &lt;=</text>
+        <text class="cap tv v5" x="260" y="280">Re-runs the tests: all pass ✓</text>
+      </svg>
     </div>
     <div class="col" style="flex:1" data-stepper data-mode="dim" data-keys>
       <div class="btns"><span class="kicker">Task: "Fix the failing login test"</span><button class="btn" data-act="next">Step</button><button class="btn" data-act="reset">Reset</button></div>
@@ -765,7 +800,7 @@ def create_ticket(title: str, category: str,
       </div>
     </div>
   </div>
-  <aside class="notes">Press → to step through the trace. Each line is one tool call — the same loop we'll build ourselves.</aside>
+  <aside class="notes">Press → to step through the trace. The robot walks to each tool and the terminal and file change with it. Each line is one tool call — the same loop we'll build ourselves.</aside>
 </section>
 
 <section class="slide" data-sec="agents">
@@ -869,8 +904,8 @@ def create_ticket(title: str, category: str,
       <g data-step><path class="ln arr acc2" d="M716 175 H429"/><text x="572" y="169" text-anchor="middle">③ tool definitions → into the model's context</text></g>
       <g data-step><path class="ln arr" d="M115 215 H421"/><text x="268" y="209" text-anchor="middle">④ "Is Clean Code in the library?"</text></g>
       <g data-step><path class="ln arr" d="M425 255 H716"/><text x="572" y="249" text-anchor="middle">⑤ model chooses check_book("Clean Code")</text></g>
-      <g data-step><path class="ln arr" d="M720 295 H1016"/><path class="ln arr" d="M1020 312 H724"/><text x="870" y="289" text-anchor="middle">⑥ tools/call</text><text x="870" y="330" text-anchor="middle" class="m">{"available": false, "due": "Oct 25"}</text></g>
-      <g data-step><path class="ln arr acc2" d="M716 360 H429"/><path class="ln arr acc2" d="M425 395 H119"/><text x="572" y="354" text-anchor="middle">⑦ result → back into context</text><text x="268" y="389" text-anchor="middle">"Out until Oct 25 — ebook available"</text></g>
+      <g data-step><path class="ln arr" d="M720 295 H1016"/><path class="ln arr" d="M1020 312 H724"/><text x="870" y="289" text-anchor="middle">⑥ tools/call</text><text x="870" y="330" text-anchor="middle" class="m">{"available": false, "due": "Dec 15"}</text></g>
+      <g data-step><path class="ln arr acc2" d="M716 360 H429"/><path class="ln arr acc2" d="M425 395 H119"/><text x="572" y="354" text-anchor="middle">⑦ result → back into context</text><text x="268" y="389" text-anchor="middle">"Out until Dec 15 — ebook available"</text></g>
     </svg>
 <pre class="code sm" data-lang="json">
 { "jsonrpc": "2.0", "id": 7, "method": "tools/call", "params": { "name": "check_book", "arguments": { "title": "Clean Code" } } }
@@ -913,10 +948,11 @@ claude mcp add playwright -- npx @playwright/mcp@latest
   <div class="head"><div class="kicker">⏩ optional · MCP</div><h2>Build Your Own MCP Server (15 lines)</h2></div>
   <div class="row fill">
 <pre class="code w60" data-lang="py">
-# campus_mcp.py   —   pip install "mcp[cli]"
-from mcp.server.fastmcp import FastMCP
+# campus_mcp.py   —   pip install "mcp[cli]>=2"
+from mcp.server.mcpserver import MCPServer
 
-mcp = FastMCP("campus")
+mcp = MCPServer("campus")
+# LIBRARY is loaded from demo/library.json, ROOMS is sample data
 
 @mcp.tool()
 def check_book(title: str) -> dict:
@@ -934,7 +970,7 @@ if __name__ == "__main__":
     <div class="col" style="flex:1">
       <div class="kicker">Plug it in</div>
 <pre class="code sm" data-lang="bash">
-claude mcp add campus -- python campus_mcp.py
+claude mcp add campus -- python demo/campus_mcp.py
 </pre>
       <div class="card acc2"><p>Now <b style="color:var(--ink)">Claude Code, Cursor, VS Code Copilot and n8n</b> can all call <code>check_book</code>.</p></div>
       <div class="card"><p>Docstring → tool description<br>Type hints → input schema</p></div>
@@ -1078,11 +1114,11 @@ claude mcp add campus -- python campus_mcp.py
         <div class="l-user">&gt; Can I borrow "Clean Code" this week?</div><br>
         <div data-step data-node="think" class="l-think">🧠 User wants Clean Code. I should check availability.</div>
         <div data-step data-node="act" class="l-tool">🔧 check_book(title="Clean Code")</div>
-        <div data-step data-node="obs" class="l-obs">👀 {"available": false, "due_back": "Oct 25"}</div>
+        <div data-step data-node="obs" class="l-obs">👀 {"available": false, "due_back": "Dec 15"}</div>
         <div data-step data-node="think" class="l-think">🧠 Not available. Is there an ebook?</div>
         <div data-step data-node="act" class="l-tool">🔧 search_catalog(query="Clean Code ebook")</div>
         <div data-step data-node="obs" class="l-obs">👀 {"ebook": true, "link": "library.uni/eb/123"}</div>
-        <div data-step data-node="ans" class="l-ans">✅ The print copy is out until Oct 25, but the ebook is available now: library.uni/eb/123</div>
+        <div data-step data-node="ans" class="l-ans">✅ The print copy is out until Dec 15, but the ebook is available now: library.uni/eb/123</div>
       </div>
     </div>
   </div>
@@ -1129,14 +1165,13 @@ claude mcp add campus -- python campus_mcp.py
 <!-- ===================== BREAK ===================== -->
 <section class="slide" id="s-break" data-sec="break">
   <div class="row fill" style="align-items:center">
-    <div class="col" style="flex:1;gap:20px">
+    <div class="col break-c">
       <div class="kicker">65 – 70 min</div>
       <h2 style="font-size:64px">☕ 5-Minute Break</h2>
       <div class="timer" data-timer="300">05:00</div>
       <div class="btns"><span class="tiny">Click the timer to start / pause</span><button class="btn" data-timer-reset>Reset</button></div>
       <div class="keyline">💭 Think of one boring task you'd hand to an agent.</div>
     </div>
-    <div class="ph w35" style="height:420px" data-src="images/break.jpg" data-label="Break image (optional)"></div>
   </div>
 </section>
 
@@ -1156,7 +1191,7 @@ claude mcp add campus -- python campus_mcp.py
       <rect class="box pink" x="10" y="140" width="150" height="70" rx="14"/><text x="85" y="172" text-anchor="middle" class="b">🎓 Student</text><text x="85" y="194" text-anchor="middle" class="m">asks a question</text>
       <rect class="box acc" x="250" y="40" width="380" height="280" rx="20"/>
       <text x="270" y="72" class="b">🤖 Agent program (Python)</text>
-      <rect class="box acc fillacc" x="290" y="100" width="300" height="60" rx="12"/><text x="440" y="128" text-anchor="middle" class="b">🧠 Claude model</text><text x="440" y="148" text-anchor="middle" class="m">via Anthropic SDK</text>
+      <rect class="box acc fillacc" x="290" y="100" width="300" height="60" rx="12"/><text x="440" y="128" text-anchor="middle" class="b">🧠 Free LLM: Nemotron</text><text x="440" y="148" text-anchor="middle" class="m">via OpenRouter</text>
       <rect class="box acc2" x="290" y="180" width="300" height="50" rx="12"/><text x="440" y="211" text-anchor="middle" class="b">🔁 Loop + 🛡 guardrails</text>
       <rect class="box" x="290" y="250" width="300" height="50" rx="12"/><text x="440" y="281" text-anchor="middle" class="b">🗂 memory.json</text>
       <rect class="box warn" x="760" y="30" width="320" height="64" rx="12"/><text x="780" y="58" class="b">📚 check_book(title)</text><text x="780" y="80" class="m">library catalogue</text>
@@ -1168,7 +1203,7 @@ claude mcp add campus -- python campus_mcp.py
       <path class="ln arr" d="M630 195 C 700 195, 700 282, 756 282"/>
     </svg>
   </div>
-  <div class="row"><span class="chip acc">Python 3.10+</span><span class="chip acc">pip install anthropic</span><span class="chip">~80 lines</span><span class="chip acc2">same pattern works with OpenAI / Gemini / local models</span></div>
+  <div class="row"><span class="chip acc">Python 3.10+</span><span class="chip acc">pip install openai</span><span class="chip acc2">free OpenRouter key</span><span class="chip">~80 lines</span><span class="chip acc2">same code works with local models</span></div>
 </section>
 
 <section class="slide" data-sec="build">
@@ -1181,27 +1216,38 @@ claude mcp add campus -- python campus_mcp.py
       <button class="tab" data-t="4">4 · The loop</button>
       <button class="tab" data-t="5">5 · Memory</button>
       <button class="tab" data-t="6">6 · Guardrails</button>
-      <button class="tab" data-t="7">7 · Bonus: local</button>
+      <button class="tab" data-t="7">7 · Local</button>
+      <button class="tab" data-t="8">8 · Cline + MCP</button>
     </div>
 
     <div class="row fill" data-p="1">
 <pre class="code w60" data-lang="py">
-# pip install anthropic
-# set ANTHROPIC_API_KEY in your environment
-»import anthropic
+# pip install openai
+# set OPENROUTER_API_KEY in your environment
+»import os
+»from openai import OpenAI
 »
-»client = anthropic.Anthropic()
-»MODEL = "claude-sonnet-5-5"
+»client = OpenAI(
+»    base_url="https://openrouter.ai/api/v1",
+»    api_key=os.environ["OPENROUTER_API_KEY"])
+»MODEL = "nvidia/nemotron-3.5-lightning:free"
 »
-»resp = client.messages.create(
+»resp = client.chat.completions.create(
 »    model=MODEL,
-»    max_tokens=512,
 »    messages=[{"role": "user", "content": "Hi! What can you do?"}],
 »)
-»print(resp.content[0].text)
+»print(resp.choices[0].message.content)
 </pre>
-      <div class="col" style="flex:1"><div class="card acc"><h3>Setup &amp; first call</h3><p>One request, one reply. This is still just a <b style="color:var(--ink)">chatbot</b>.</p></div>
-        <div class="card"><p><code>messages</code> = the conversation so far.<br><code>max_tokens</code> = cap on the reply length.</p></div></div>
+      <div class="col" style="flex:1">
+        <div class="card acc2 homework"><h3 class="acc2">🆓 Setup: a free key</h3>
+          <ol>
+            <li>Sign in at <a class="lk" href="https://openrouter.ai">openrouter.ai</a></li>
+            <li>Create a key at <a class="lk" href="https://openrouter.ai/keys">openrouter.ai/keys</a></li>
+            <li>Set <code>OPENROUTER_API_KEY</code></li>
+          </ol></div>
+        <div class="card acc"><h3>First call</h3><p>One request, one reply. This is still just a <b style="color:var(--ink)">chatbot</b>.</p></div>
+        <div class="card warn"><p><b style="color:var(--ink)">Free limits:</b> 20 requests a minute, 50 a day. <a class="lk" href="https://openrouter.ai/models?max_price=0">Free models</a> change, so pick one with tool support. No private data.</p></div>
+      </div>
     </div>
 
     <div class="row fill" data-p="2">
@@ -1211,14 +1257,13 @@ claude mcp add campus -- python campus_mcp.py
 »- Use tools to check facts. Never guess book availability.
 »- Always ask before creating a ticket."""
 
-messages = [{"role": "user", "content": question}]
+messages = [
+»    {"role": "system", "content": SYSTEM},
+    {"role": "user", "content": question},
+]
 
-resp = client.messages.create(
-    model=MODEL,
-    max_tokens=1024,
-»    system=SYSTEM,
-    messages=messages,
-)
+resp = client.chat.completions.create(model=MODEL, messages=messages)
+print(resp.choices[0].message.content)
 </pre>
       <div class="col" style="flex:1"><div class="card acc"><h3>Give it a job</h3><p>The <b style="color:var(--ink)">system prompt</b> sets role, rules and tone — the agent's job description.</p></div>
         <div class="card"><p>It's the first layer of the <b style="color:var(--ink)">context</b> — sent with every request.</p></div></div>
@@ -1226,8 +1271,10 @@ resp = client.messages.create(
 
     <div class="row fill" data-p="3">
 <pre class="code sm w60" data-lang="py">
-»LIBRARY = {"clean code": {"available": False, "due_back": "2026-10-25"},
-»           "sicp": {"available": True, "shelf": "QA76.6"}}
+»import json
+»# Import the catalogue, like loading a database table
+»BOOKS = json.load(open("demo/library.json", encoding="utf-8"))["books"]
+»LIBRARY = {b["title"].lower(): b for b in BOOKS}
 »
 »def check_book(title):
 »    return LIBRARY.get(title.lower(), {"error": "not in catalogue"})
@@ -1237,53 +1284,54 @@ resp = client.messages.create(
 »
 »def create_ticket(title, category):
 »    return {"ticket_id": 1042, "status": "open"}
-»
 »FUNCS = {"check_book": check_book, "search_faq": search_faq,
 »         "create_ticket": create_ticket}
 »
 »TOOLS = [
-»  {"name": "check_book", "description": "Check if a library book is available",
-»   "input_schema": {"type": "object",
+»  {"type": "function", "function": {
+»     "name": "check_book",
+»     "description": "Check if a library book is available",
+»     "parameters": {"type": "object",
 »                    "properties": {"title": {"type": "string"}},
-»                    "required": ["title"]}},
+»                    "required": ["title"]}}},
 »  # ... search_faq and create_ticket defined the same way
 »]
 </pre>
       <div class="col" style="flex:1"><div class="card acc"><h3>Add tools</h3><p>Real Python functions + a <b style="color:var(--ink)">schema</b> the model reads.</p></div>
         <div class="card"><p>In real life these call a database or API. Here they're fakes so the demo always works.</p></div>
-        <div class="card warn"><p>Pass <code>tools=TOOLS</code> in the request — the model may now reply with <code>tool_use</code> instead of text.</p></div></div>
+        <div class="card warn"><p>Pass <code>tools=TOOLS</code> in the request — the model may now reply with <code>tool_calls</code> instead of text.</p></div>
+        <div class="card"><p>Same idea as <code>input_schema</code> earlier. OpenAI-style APIs call it <code>parameters</code>.</p></div></div>
     </div>
 
     <div class="row fill" data-p="4">
 <pre class="code sm w60" data-lang="py">
 »while True:
-    resp = client.messages.create(
-        model=MODEL, max_tokens=1024,
-»        system=SYSTEM, tools=TOOLS, messages=messages)
-»    messages.append({"role": "assistant", "content": resp.content})
+    resp = client.chat.completions.create(
+»        model=MODEL, messages=messages, tools=TOOLS)
+»    msg = resp.choices[0].message
+»    messages.append(msg)
 »
-»    if resp.stop_reason != "tool_use":
+»    if not msg.tool_calls:
 »        break                                   # final answer
 »
-»    results = []
-»    for block in resp.content:
-»        if block.type == "tool_use":
-»            output = FUNCS[block.name](**block.input)
-»            results.append({"type": "tool_result",
-»                            "tool_use_id": block.id,
-»                            "content": json.dumps(output)})
-»    messages.append({"role": "user", "content": results})
+»    for call in msg.tool_calls:
+»        args = json.loads(call.function.arguments)
+»        output = FUNCS[call.function.name](**args)
+»        messages.append({"role": "tool",
+»                         "tool_call_id": call.id,
+»                         "content": json.dumps(output)})
 
-print(resp.content[0].text)
+print(msg.content)
 </pre>
       <div class="col" style="flex:1"><div class="card acc2"><h3>🔁 The loop — this is the agent!</h3><p>Call model → if it wants a tool, <b style="color:var(--ink)">run it</b> → send the result back → repeat until it answers.</p></div>
-        <div class="card"><p><code>stop_reason == "tool_use"</code> → model wants a tool.<br><code>tool_use_id</code> links each result to its request.</p></div>
+        <div class="card"><p><code>msg.tool_calls</code> → model wants a tool.<br><code>tool_call_id</code> links each result to its request.</p></div>
+        <div class="card warn"><p>Every trip round the loop is <b style="color:var(--ink)">one request</b> against your free limit.</p></div>
         <div class="keyline small">~15 lines turn a chatbot into an agent.</div></div>
     </div>
 
     <div class="row fill" data-p="5">
 <pre class="code w60" data-lang="py">
-»import json, pathlib
+»import pathlib
 »MEM = pathlib.Path("memory.json")
 »
 »def load_memory():
@@ -1295,9 +1343,11 @@ print(resp.content[0].text)
 »        {"role": "assistant", "content": answer}]
 »    MEM.write_text(json.dumps(history[-20:]))   # last 10 exchanges
 
-»messages = load_memory() + [{"role": "user", "content": question}]
+messages = ([{"role": "system", "content": SYSTEM}]
+»            + load_memory()
+            + [{"role": "user", "content": question}])
 # ... loop ...
-»remember(question, resp.content[0].text)
+»remember(question, msg.content)
 </pre>
       <div class="col" style="flex:1"><div class="card acc"><h3>Add memory</h3><p>Save the conversation to a file; reload it next run.</p></div>
         <div class="card"><p>Keeps only the <b style="color:var(--ink)">last 10 exchanges</b> — context engineering in one line.</p></div>
@@ -1323,39 +1373,56 @@ print(resp.content[0].text)
 
 »for step in range(MAX_STEPS):                  # instead of while True
     ...
-»            output = run_tool(block.name, block.input)
-»            print(f"[log] step={step} tool={block.name} args={block.input}")
+»        output = run_tool(call.function.name, args)
+»        print(f"[log] tool={call.function.name} args={args} -> {output}")
 </pre>
       <div class="col" style="flex:1"><div class="card bad"><h3>🛡 Add guardrails</h3><p>Max steps · human approval for risky tools · errors returned, not crashed · logging.</p></div>
-        <div class="card"><p>The model <b style="color:var(--ink)">asks</b>; your code <b style="color:var(--ink)">decides</b>. This is where safety lives.</p></div></div>
+        <div class="card"><p>The model <b style="color:var(--ink)">asks</b>; your code <b style="color:var(--ink)">decides</b>. This is where safety lives.</p></div>
+        <div class="card acc2"><p>✅ <b style="color:var(--ink)">Done.</b> Run the full agent: <code>python demo/helpdesk_agent.py</code></p></div></div>
     </div>
 
     <div class="row fill" data-p="7">
-<pre class="code sm w60" data-lang="py">
-»from openai import OpenAI
-»client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")
+<pre class="code w60" data-lang="py">
+# Swap OpenRouter for a model on your laptop.
+# Only these two lines change:
+»client = OpenAI(base_url="http://localhost:1234/v1", api_key="local")
 »MODEL = "qwen3.5-4b"
 
-»# OpenAI-style tool format
-»OAI_TOOLS = [{"type": "function", "function": {
-»    "name": t["name"], "description": t["description"],
-»    "parameters": t["input_schema"]}} for t in TOOLS]
-
-resp = client.chat.completions.create(
-    model=MODEL, tools=OAI_TOOLS,
-    messages=[{"role": "system", "content": SYSTEM}] + messages)
-msg = resp.choices[0].message
-»for call in msg.tool_calls or []:
-»    output = run_tool(call.function.name, json.loads(call.function.arguments))
-»    messages += [msg, {"role": "tool", "tool_call_id": call.id,
-»                       "content": json.dumps(output)}]
+# Tools, loop, memory and guardrails stay exactly the same.
+# Run it: python demo/local_agent.py
 </pre>
-      <div class="col" style="flex:1"><div class="card warn"><h3>💻 Run it free on your laptop</h3><p>Point the client at <b style="color:var(--ink)">LM Studio / Jan</b> running Qwen 3.5 4B.</p></div>
-        <div class="card"><p>Same loop, different message format.</p></div>
+      <div class="col" style="flex:1"><div class="card warn"><h3>💻 Bonus: no internet at all</h3><p>Point the client at <b style="color:var(--ink)">LM Studio / Jan</b> running Qwen 3.5 4B.</p></div>
+        <div class="card"><p>Both speak the same API, so the agent doesn't notice.</p></div>
         <div class="card"><p>🧪 Compare: speed, and how often the small model picks the <b style="color:var(--ink)">right tool</b>.</p></div></div>
     </div>
+
+    <div class="row fill" data-p="8">
+<pre class="code sm w60" data-lang="json">
+»{
+»  "mcpServers": {
+»    "campus": {
+»      "command": "python",
+»      "args": ["C:/path/to/demo/campus_mcp.py"],
+»      "disabled": false,
+»      "autoApprove": []
+»    }
+»  }
+»}
+</pre>
+      <div class="col" style="flex:1">
+        <div class="card acc homework"><h3 class="acc">🔌 Use your MCP server in Cline</h3>
+          <ol>
+            <li>Run <code>pip install "mcp[cli]>=2"</code></li>
+            <li>Install <a class="lk" href="https://cline.bot">Cline</a> in VS Code</li>
+            <li>⚙️ Settings → API Provider: <b>OpenRouter</b>. Paste your key, pick a free Nemotron model</li>
+            <li>MCP Servers icon → Configure → <b>Configure MCP Servers</b>. Paste this JSON, using your full path</li>
+            <li>Ask: <i>"Is Python Crash Course available in the library?"</i> Approve the tool call</li>
+          </ol></div>
+        <div class="card"><p>Empty <code>autoApprove</code> = Cline asks before every tool call.</p></div>
+      </div>
+    </div>
   </div>
-  <aside class="notes">Click through tabs 1→6, explaining each. Full runnable code is in demo/helpdesk_agent.py and demo/local_agent.py.</aside>
+  <aside class="notes">Click through tabs 1→6: this is the whole agent, on a free OpenRouter model, so students can run every step themselves. Tab 7 swaps to a local model. Tab 8 uses our MCP server in Cline. Full code: demo/helpdesk_agent.py and demo/local_agent.py.</aside>
 </section>
 
 <section class="slide" data-sec="build">
@@ -1364,45 +1431,17 @@ msg = resp.choices[0].message
     <div class="btns"><button class="btn" data-act="play">▶ Play</button><button class="btn" data-act="next">Step</button><button class="btn" data-act="reset">Reset</button><span class="tiny">$ python demo/helpdesk_agent.py</span></div>
     <div class="term fill" style="font-size:15.5px">
       <div class="l-user">You: Is 'Clean Code' available? If not, open a ticket to request another copy.</div>
-      <div data-step class="l-think">[step 0] model → stop_reason=tool_use</div>
+      <div data-step class="l-think">[step 0] model → tool_calls: check_book</div>
       <div data-step class="l-tool">[log] tool=check_book args={'title': 'Clean Code'}</div>
-      <div data-step class="l-obs">      → {"available": false, "due_back": "2026-10-25"}</div>
-      <div data-step class="l-think">[step 1] model → stop_reason=tool_use</div>
+      <div data-step class="l-obs">      → {"available": false, "due_back": "2026-12-15"}</div>
+      <div data-step class="l-think">[step 1] model → tool_calls: create_ticket</div>
       <div data-step class="l-sys" data-pause>⚠ Agent wants to run create_ticket({'title': 'Request extra copy of Clean Code', 'category': 'library'})<br>Approve? [y/N] <button class="btn" data-act="resume">y — Approve</button></div>
       <div data-step class="l-tool">[log] tool=create_ticket → {"ticket_id": 1042, "status": "open"}</div>
-      <div data-step class="l-think">[step 2] model → stop_reason=end_turn</div>
-      <div data-step class="l-ans">CampusHelp: "Clean Code" is checked out until Oct 25. I've opened ticket #1042 asking the library for another copy. 📚</div>
+      <div data-step class="l-think">[step 2] model → final answer</div>
+      <div data-step class="l-ans">CampusHelp: "Clean Code" is checked out until Dec 15. I've opened ticket #1042 asking the library for another copy. 📚</div>
     </div>
   </div>
   <aside class="notes">Run live from demo/helpdesk_agent.py if network allows; otherwise use this simulated trace. It pauses at approval — click Approve.</aside>
-</section>
-
-<section class="slide" data-sec="build">
-  <div class="head"><div class="kicker">Recap</div><h2>What Just Happened?</h2></div>
-  <div class="row fill">
-    <div class="w60 center">
-      <svg class="dg" viewBox="0 0 680 360">
-        <rect class="box pink" x="10" y="0" width="120" height="34" rx="8"/><text x="70" y="23" text-anchor="middle" class="b">User</text><path class="ln dash" d="M70 34 V360"/>
-        <rect class="box acc2" x="200" y="0" width="140" height="34" rx="8"/><text x="270" y="23" text-anchor="middle" class="b">Your program</text><path class="ln dash" d="M270 34 V360"/>
-        <rect class="box acc" x="420" y="0" width="120" height="34" rx="8"/><text x="480" y="23" text-anchor="middle" class="b">Model</text><path class="ln dash" d="M480 34 V360"/>
-        <rect class="box warn" x="580" y="0" width="90" height="34" rx="8"/><text x="625" y="23" text-anchor="middle" class="b">Tool</text><path class="ln dash" d="M625 34 V360"/>
-        <path class="ln arr" d="M70 60 H266"/><text x="168" y="54" text-anchor="middle" class="m">question</text>
-        <path class="ln arr" d="M270 95 H476"/><text x="373" y="89" text-anchor="middle" class="m">messages + tools</text>
-        <path class="ln arr" d="M480 130 H274"/><text x="373" y="124" text-anchor="middle" class="m">tool_use: check_book</text>
-        <path class="ln arr acc2" d="M270 165 H621"/><text x="450" y="159" text-anchor="middle" class="m">program runs it</text>
-        <path class="ln arr acc2" d="M625 195 H274"/><text x="450" y="189" text-anchor="middle" class="m">result</text>
-        <path class="ln arr" d="M270 230 H476"/><text x="373" y="224" text-anchor="middle" class="m">tool_result</text>
-        <text x="373" y="262" text-anchor="middle" class="m">… repeat …</text>
-        <path class="ln arr" d="M480 295 H274"/><text x="373" y="289" text-anchor="middle" class="m">final text</text>
-        <path class="ln arr" d="M270 330 H74"/><text x="168" y="324" text-anchor="middle" class="m">answer</text>
-      </svg>
-    </div>
-    <div class="col" style="flex:1">
-      <div class="takeaway"><span class="n">1</span>The <b>model chooses</b> tools; the <b>program executes</b> them.</div>
-      <div class="takeaway"><span class="n">2</span>~80 lines of code = a working agent.</div>
-      <div class="takeaway"><span class="n">3</span>Frameworks are convenience on top of <b>this loop</b>.</div>
-    </div>
-  </div>
 </section>
 
 <section class="slide" data-sec="build">
@@ -1411,7 +1450,7 @@ msg = resp.choices[0].message
     <div class="col w60">
       <h3>Extend the agent with one new tool:</h3>
       <div class="g3">
-        <div class="card acc"><code>get_exam_timetable(course_code)</code></div>
+        <div class="card acc"><code style="overflow-wrap:anywhere">get_exam_timetable(course_code)</code></div>
         <div class="card acc"><code>find_free_room(time)</code></div>
         <div class="card acc"><code>weather_today(city)</code><p>call a free weather API</p></div>
       </div>
@@ -1420,7 +1459,88 @@ msg = resp.choices[0].message
       <div class="card"><p>💻 Rebuild the same agent in <b style="color:var(--ink)">n8n</b> with a <b style="color:var(--ink)">local Qwen</b> model — compare</p></div>
       <p class="small sub">Starter code: <code>demo/</code> folder · <a class="lk" href="https://github.com/janarthan-j/tech_talk_frontiers-">github.com/janarthan-j/tech_talk_frontiers-</a></p>
     </div>
-    <div class="ph" style="flex:1" data-src="images/repo-qr.png" data-label="QR code → code repo"></div>
+    <div class="ph contain" style="flex:1" data-src="images/repo-qr.png" data-label="QR code → code repo"></div>
+  </div>
+</section>
+
+<section class="slide" data-sec="build">
+  <div class="head"><div class="kicker">Local AI</div><h2>Run an LLM on Your Own Laptop</h2></div>
+  <div class="col fill local-ai">
+    <div class="g4 benefits">
+      <div class="card acc2"><h3>💸 Free</h3><p>No API bill</p></div>
+      <div class="card acc2"><h3>🔒 Private</h3><p>Data never leaves</p></div>
+      <div class="card acc2"><h3>✈️ Offline</h3><p>Works without Wi-Fi</p></div>
+      <div class="card acc2"><h3>🧪 Experiment</h3><p>Try any open model</p></div>
+    </div>
+    <div class="row fill">
+      <div class="stack" style="flex:0 0 36%">
+        <div style="background:var(--acc)">Desktop app <small>LM Studio / Jan</small></div>
+        <div style="background:var(--acc2)">Inference engine <small>llama.cpp</small></div>
+        <div style="background:var(--warn)">Model file <small>GGUF, quantized</small></div>
+        <div style="background:var(--muted)">Your hardware <small>CPU / GPU / RAM</small></div>
+      </div>
+      <div style="flex:1;min-width:0">
+        <table class="t compact">
+        <tr><th>Tool</th><th>What it is</th><th>Link</th></tr>
+        <tr><td>LM Studio</td><td>Discover, download, chat; local API server (llama.cpp, MLX on Mac)</td><td><a class="lk" href="https://lmstudio.ai">lmstudio.ai</a></td></tr>
+        <tr><td>Jan</td><td>Open-source ChatGPT-style app, runs offline on llama.cpp</td><td><a class="lk" href="https://www.jan.ai">jan.ai</a></td></tr>
+        <tr><td>llama.cpp</td><td>The C/C++ engine underneath both</td><td><a class="lk" href="https://github.com/ggml-org/llama.cpp">github</a></td></tr>
+        <tr><td>Ollama</td><td>CLI-first alternative, llama.cpp-based</td><td><a class="lk" href="https://ollama.com">ollama.com</a></td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Live demo: open LM Studio with Qwen 4B pre-downloaded. Turn Wi-Fi off and chat — it still works.</aside>
+</section>
+
+<section class="slide" data-sec="build">
+  <div class="head"><div class="kicker">Local AI</div><h2>Which Model Fits My Laptop?</h2></div>
+  <div class="row fill">
+    <div class="col w60">
+      <table class="t">
+        <tr><th>Model (examples)</th><th>Size</th><th>RAM (Q4)</th><th>Good for</th></tr>
+        <tr><td>Qwen 3.5 2B</td><td>2B</td><td>~2 GB</td><td>Very fast; classify, extract, simple chat</td></tr>
+        <tr><td>Qwen 3.5 4B <span class="chip acc2">starter</span></td><td>4B</td><td>~3–4 GB</td><td>Basic tool calling, coding help</td></tr>
+        <tr><td>9B / 8B class<br><span class="tiny">Qwen, Gemma, Llama</span></td><td>8–9B</td><td>~6–8 GB</td><td>Stronger reasoning; 16 GB laptop</td></tr>
+      </table>
+      <p class="small sub">Find models: <a class="lk" href="https://huggingface.co/Qwen">huggingface.co/Qwen</a> · <a class="lk" href="https://lmstudio.ai/models">lmstudio.ai/models</a></p>
+    </div>
+    <div class="col" style="flex:1">
+      <div class="card"><h3>🗜️ Quantization</h3><p>Compress weights: Q8 → Q5 → Q4. Q4 ≈ ¼ of full size with small quality loss.</p></div>
+      <div class="card"><h3>📦 GGUF</h3><p>The model file format llama.cpp loads.</p></div>
+      <div class="card acc2"><h3>📏 Rule of thumb</h3><p><b style="color:var(--ink)">~0.6 GB RAM per billion params at Q4</b>, plus room for context.</p></div>
+    </div>
+  </div>
+  <aside class="notes">Check exact model names and sizes on Hugging Face on the day — the small-model lineup changes often.</aside>
+</section>
+
+<section class="slide" data-sec="build">
+  <div class="head"><div class="kicker">Local AI</div><h2>Your Laptop Is Now an AI API</h2></div>
+  <div class="row fill">
+    <div class="col w55">
+      <p>LM Studio and Jan expose an <b class="acc2">OpenAI-compatible server</b>. Code written for OpenAI works locally by changing <b>one line</b>.</p>
+<pre class="code" data-lang="py">
+from openai import OpenAI
+
+»client = OpenAI(base_url="http://localhost:1234/v1", api_key="local")
+
+resp = client.chat.completions.create(
+    model="qwen3.5-4b",   # name as shown in LM Studio
+    messages=[{"role": "user", "content": "Explain recursion in 2 lines"}],
+)
+print(resp.choices[0].message.content)
+</pre>
+    </div>
+    <div class="col" style="flex:1">
+      <table class="t compact">
+        <tr><th>App</th><th>Default endpoint</th></tr>
+        <tr><td>LM Studio</td><td><code>localhost:1234/v1</code></td></tr>
+        <tr><td>Jan</td><td><code>localhost:1337/v1</code></td></tr>
+        <tr><td>Ollama</td><td><code>localhost:11434/v1</code></td></tr>
+      </table>
+      <div class="card acc"><h3>🔌 Plug it into</h3><p>n8n · VS Code extensions (Cline, Continue) · the agent we build later</p></div>
+      <div class="card warn"><h3>⚠️ Limits</h3><p>Slower, weaker reasoning, more tool-call mistakes. Great for learning — test carefully before production.</p></div>
+    </div>
   </div>
 </section>
 
@@ -1558,7 +1678,7 @@ msg = resp.choices[0].message
 
 <section class="slide" data-sec="careers">
   <div class="head"><div class="kicker">Click a role to expand</div><h2>New &amp; Growing Roles</h2></div>
-  <div class="g4 fill" style="align-content:start">
+  <div class="g4 fill roles">
     <div class="card role"><h3>🛠 AI Engineer</h3><p class="one">Builds products on top of LLMs</p><div class="more"><p>APIs, RAG, agents, shipping AI features end-to-end.</p><p class="sk">Python/TS · APIs · context engineering · evals</p></div></div>
     <div class="card role"><h3>🤖 Agent / Applied AI Engineer</h3><p class="one">Designs tool-using agents</p><div class="more"><p>Tool design, orchestration, reliability of multi-step agents.</p><p class="sk">Tool design · MCP · orchestration · reliability</p></div></div>
     <div class="card role"><h3>⚙️ LLMOps / ML Platform</h3><p class="one">Deploys, monitors, scales</p><div class="more"><p>Runs models and agents in production.</p><p class="sk">Cloud · Docker/K8s · observability · cost control</p></div></div>
@@ -1568,7 +1688,6 @@ msg = resp.choices[0].message
     <div class="card role"><h3>📋 AI Product Manager</h3><p class="one">Decides what AI should do</p><div class="more"><p>…and what it shouldn't. Owns metrics and user experience.</p><p class="sk">User research · metrics · AI limitations</p></div></div>
     <div class="card role"><h3>🗄 Data Engineer for AI</h3><p class="one">Feeds the models</p><div class="more"><p>Pipelines, vector databases, data quality for RAG.</p><p class="sk">SQL · ETL · embeddings · vector DBs</p></div></div>
   </div>
-  <div class="ph" style="height:90px" data-src="images/careers.jpg" data-label="Careers banner (optional)"></div>
 </section>
 
 <section class="slide" data-sec="careers">
@@ -1679,14 +1798,13 @@ msg = resp.choices[0].message
       <h2 style="font-size:84px;line-height:1">Questions?</h2>
       <div style="font-size:24px"><b>Janarthan Jeyachandran</b></div>
       <div class="sub" style="font-size:18px">Senior Software Engineer, SenzMate Pvt Ltd</div>
+      <img class="co-logo" src="images/senzmate-logo.png" alt="SenzMate logo">
+      <div style="font-size:18px">✉️ <a class="lk" href="mailto:jeyjanarthan@gmail.com">jeyjanarthan@gmail.com</a></div>
+      <div style="font-size:18px">💼 <a class="lk" href="https://www.linkedin.com/in/janarthan-jeyachandran-42249b148/">linkedin.com/in/janarthan-jeyachandran-42249b148</a></div>
       <div style="font-size:18px">🐙 <a class="lk" href="https://github.com/janarthan-j">github.com/janarthan-j</a></div>
       <div class="sub" style="font-size:16px">Frontiers in Tech 15.0 · IEEE Student Branch, Rajarata University of Sri Lanka</div>
     </div>
-    <div class="ph" style="width:220px;height:260px" data-src="images/speaker.jpg" data-label="Speaker photo"></div>
-    <div class="col" style="width:200px">
-      <div class="ph contain" style="height:180px" data-src="images/qr-slides.png" data-label="QR · slides + code"></div>
-      <div class="ph contain" style="height:180px" data-src="images/qr-feedback.png" data-label="QR · feedback form"></div>
-    </div>
+    <div class="ph" style="width:380px;height:450px" data-src="images/speaker.jpg" data-label="Speaker photo"></div>
   </div>
 </section>
 

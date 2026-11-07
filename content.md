@@ -60,7 +60,7 @@ Total: **77 slides** across 9 sections (sub-slides like 14a, 26a, 27a, 28a added
   1. **Typing → Directing** — you describe intent, AI drafts; your value is judgement and review
   2. **Answering → Doing** — AI moves from giving text to taking actions (running code, opening PRs, calling APIs)
   3. **Tool → Teammate** — background agents work on tasks in parallel while you do something else
-- 🖼 IMAGE: `images/dev-with-ai.jpg` — developer working alongside AI (illustration)
+- 🎞 ANIMATION: developer asks for a login page, AI robot writes the code and runs the tests, developer reviews and decides to ship
 
 ### Slide 7 — What Hasn't Changed
 - Fundamentals matter *more*, not less:
@@ -135,51 +135,7 @@ Total: **77 slides** across 9 sections (sub-slides like 14a, 26a, 27a, 28a added
 | Test generation | Qodo | 🔗 https://qodo.ai |
 | Docs | Mintlify | 🔗 https://mintlify.com |
 | Research | Perplexity, NotebookLM | 🔗 https://perplexity.ai · https://notebooklm.google.com |
-| Local / open models | LM Studio, Jan, Ollama, Hugging Face | see next slides |
-
-### Slide 14a — Run an LLM on Your Own Laptop
-- Why local: **free**, **private** (data never leaves laptop), **works offline**, great for experiments and learning
-- 📊 DIAGRAM: stack — Desktop app (LM Studio / Jan) → inference engine (**llama.cpp**) → model file (**GGUF**, quantized) → your CPU / GPU
-| Tool | What it is | Link |
-|---|---|---|
-| LM Studio | desktop app: discover, download, chat, local API server (llama.cpp; MLX on Mac) | 🔗 https://lmstudio.ai |
-| Jan | open-source ChatGPT-style desktop app, runs offline on llama.cpp | 🔗 https://www.jan.ai |
-| llama.cpp | the C/C++ engine underneath both | 🔗 https://github.com/ggml-org/llama.cpp |
-| Ollama | CLI-first alternative, also llama.cpp-based | 🔗 https://ollama.com |
-- 🖼 IMAGE: `images/lmstudio.png` — LM Studio model search / chat screenshot
-- 🖼 IMAGE: `images/jan.png` — Jan chat screenshot
-
-### Slide 14b — Which Model Fits My Laptop?
-- Small models are now good enough for experiments, tool calling basics, summarising, classification
-| Model (examples) | Size | Approx RAM (Q4) | Good for |
-|---|---|---|---|
-| Qwen 3.5 2B | 2B | ~2 GB | very fast; classify, extract, simple chat |
-| Qwen 3.5 4B | 4B | ~3–4 GB | best starter; basic tool calling, coding help |
-| Qwen 3.5 9B / Gemma / Llama 8B class | 8–9B | ~6–8 GB | stronger reasoning, needs 16 GB laptop |
-- Key terms:
-  - **Quantization** (Q4, Q5, Q8) — compress weights; Q4 ≈ ¼ size, small quality loss
-  - **GGUF** — model file format used by llama.cpp
-  - Rule of thumb: **~0.6 GB RAM per billion params at Q4** + room for context
-- 🔗 Find models: https://huggingface.co/Qwen · https://lmstudio.ai/models
-- 🗣 NOTES: Check exact model names/sizes on Hugging Face on the day; small-model lineup changes often. Live: download Qwen 4B in LM Studio and chat offline (turn Wi-Fi off for effect).
-
-### Slide 14c — Your Laptop Is Now an AI API
-- LM Studio and Jan expose an **OpenAI-compatible server** → any code written for OpenAI works locally by changing one line
-| App | Default local endpoint |
-|---|---|
-| LM Studio | `http://localhost:1234/v1` |
-| Jan | `http://localhost:1337/v1` |
-| Ollama | `http://localhost:11434/v1` |
-```python
-from openai import OpenAI
-client = OpenAI(base_url="http://localhost:1234/v1", api_key="local")
-resp = client.chat.completions.create(
-    model="qwen3.5-4b",   # name as shown in LM Studio
-    messages=[{"role": "user", "content": "Explain recursion in 2 lines"}])
-print(resp.choices[0].message.content)
-```
-- Same server can plug into n8n, VS Code extensions (Cline, Continue), and our Build-section agent
-- Limits: slower than cloud, weaker reasoning, small models make more tool-call mistakes → great for learning, test carefully before production
+| Local / open models | LM Studio, Jan, Ollama, Hugging Face | covered after the Build mini challenge |
 
 ### Slide 15 — The Autonomy Spectrum
 - 🎛 INTERACTIVE: slider with 5 levels; moving it updates description, example tool, and "who's in control"
@@ -191,12 +147,12 @@ print(resp.choices[0].message.content)
 - Key line: *More autonomy = more speed **and** more need for review.*
 
 ### Slide 16 — Live Demo: Same Task, Three Tools
+- 🎞 ANIMATION: each tool card loops a 2D animation of who does the work (chat: you carry code back and forth, 5 steps; IDE: you select, ask, accept, 3 steps; agent: finds, edits, runs, fixes its own failed test, verifies, 2 steps)
 - Task: *"Add a dark-mode toggle to this web page."*
   1. Chat assistant (copy-paste)
   2. IDE assistant (inline edit)
   3. Agentic tool (plans, edits, runs)
 - Compare: time, number of steps *you* did, quality
-- 🖼 IMAGE: `images/demo-fallback.png` — fallback screenshot if internet fails
 - 🗣 NOTES: Keep to ~6 min. Point out who did the work in each case.
 
 ---
@@ -247,10 +203,10 @@ print(resp.choices[0].message.content)
 
 ### Slide 22 — Real-Life Agent Solutions
 - 📊 Four cards, each with 🖼 slot
-  1. **Customer support** — reads ticket, checks order DB, refunds or escalates · 🖼 `images/use-support.png`
-  2. **Coding** — issue → code fix → tests → pull request · 🖼 `images/use-coding.png`
-  3. **Data analysis** — question in English → writes SQL → runs → chart · 🖼 `images/use-data.png`
-  4. **DevOps / incident** — alert → read logs → find cause → suggest fix · 🖼 `images/use-ops.png`
+  1. **Customer support** — reads ticket, checks order DB, refunds or escalates · 🎞 animated sample run
+  2. **Coding** — issue → code fix → tests → pull request · 🎞 animated sample run
+  3. **Data analysis** — question in English → writes SQL → runs → chart · 🎞 animated sample run
+  4. **DevOps / incident** — alert → read logs → find cause → suggest fix · 🎞 animated sample run
 - Ask: *"What's one task in your university life an agent could do?"*
 
 ### Slide 22a — Build Agent Solutions Without Code: n8n
@@ -261,7 +217,7 @@ print(resp.choices[0].message.content)
   - Agent sub-nodes: **Chat Model** (OpenAI, Claude, Gemini, or local **Ollama / LM Studio**) · **Memory** (window buffer, Postgres, Redis) · **Tools** (Google Sheets, Gmail, HTTP Request, Code, Calculator, another workflow, MCP Client)
   - → **Output** (reply, Slack message, sheet row)
 - Same 4 parts we'll learn: model, tools, memory, loop — just drag-and-drop
-- 🖼 IMAGE: `images/n8n-agent-node.png` — screenshot of n8n AI Agent node with sub-nodes
+- 🎞 ANIMATION: sample node canvas (Chat trigger → AI Agent → Reply, with Chat Model, Memory, check_book and Gmail tools plugged in). Packets show the agent loop; the execution log fills in step by step; Gmail stays unused
 - 🔗 Templates: https://n8n.io/workflows · AI docs: https://docs.n8n.io/advanced-ai/
 
 ### Slide 22b — n8n Example 1: Student Support Email Agent
@@ -276,24 +232,20 @@ print(resp.choices[0].message.content)
 ### Slide 22c — n8n Example 2: GitHub Issue Triage Agent
 - 📊 DIAGRAM (flow):
   `GitHub Trigger (issue opened)` → `AI Agent` [Tools: GitHub "search similar issues", HTTP "read docs", Code node] → `Structured Output Parser {label, priority, duplicate_of, reply}` → `GitHub: add labels` + `GitHub: comment` → `Discord/Slack: notify maintainers if priority=high`
-- Other quick ideas students can build in an afternoon:
+- Or build one of these instead:
   - Telegram bot answering lecture-notes questions (RAG with vector store node)
   - Daily digest: RSS + web → AI summary → email
   - Event registration assistant: Google Form → AI checks → confirmation email
-- 🖼 IMAGE: `images/n8n-issue-triage.png`
-
-### Slide 22d — Google's Options: Opal & Cloud Workflows
-| Tool | What it is | Good for | Link |
-|---|---|---|---|
-| Google Opal (Labs) | describe a mini AI app in plain English → visual workflow of prompts, models, tools | quick AI mini-apps, no code | 🔗 https://opal.withgoogle.com |
-| Google Cloud Workflows | serverless orchestration of APIs + Vertex AI/Gemini steps (YAML) | production pipelines on GCP | 🔗 https://cloud.google.com/workflows |
-| Vertex AI Agent Builder / ADK | build, deploy, manage agents on Google Cloud | enterprise agents | 🔗 https://cloud.google.com/products/agent-builder |
-- 📊 DIAGRAM: Cloud Workflows example — `Cloud Storage: new PDF` → `Document AI: extract text` → `Gemini: summarise + classify` → `Firestore: save` → `Email: notify`
-- 🖼 IMAGE: `images/google-opal.png` — Opal workflow screenshot
-- 🗣 NOTES: Opal availability varies by country — check before session.
+- 🏠 TAKE-HOME: students build this agent after the session:
+  1. Start n8n: n8n Cloud trial, or `npx n8n`. GitHub must reach it, so a local install needs a tunnel such as ngrok
+  2. Make a test repo and add a GitHub token as an n8n credential
+  3. Get a Gemini API key at https://aistudio.google.com and connect it to the AI Agent
+  4. Wire the nodes: GitHub Trigger → AI Agent + Structured Output Parser → GitHub (labels, comment)
+  5. Test: open a bug, a question and a duplicate issue; check each label and comment
+  - Stuck: https://n8n.io/workflows · https://docs.n8n.io/advanced-ai/
 
 ### Slide 22e — Code vs No-Code: When to Use Which
-| | No-code (n8n, Opal, Zapier) | Code (SDKs, frameworks) |
+| | No-code (n8n, Zapier) | Code (SDKs, frameworks) |
 |---|---|---|
 | Speed to first version | minutes–hours | hours–days |
 | Integrations | hundreds ready-made | write your own |
@@ -407,7 +359,7 @@ def create_ticket(title: str, category: str, priority: str = "normal") -> dict:
   3. `Read: auth.py`
   4. `Edit: auth.py` → `<` changed to `<=`
   5. `Bash: pytest` → all passed ✓
-- 🖼 IMAGE: `images/coding-agent-tools.png` — screenshot of a coding agent's tool calls
+- 🎞 ANIMATION: follows the Step button. The agent walks to Bash, Grep, Read, Edit, Bash while the terminal and auth.py change (test fails, line 42 found, `<` becomes `<=`, all tests pass)
 
 ### Slide 26e — Customising Your Coding Agent
 | Feature | What it does | Example |
@@ -498,10 +450,11 @@ claude mcp add playwright -- npx @playwright/mcp@latest
 
 ### Slide 27e — Build Your Own MCP Server (15 lines)
 ```python
-# campus_mcp.py   —   pip install "mcp[cli]"
-from mcp.server.fastmcp import FastMCP
+# campus_mcp.py   —   pip install "mcp[cli]>=2"
+from mcp.server.mcpserver import MCPServer
 
-mcp = FastMCP("campus")
+mcp = MCPServer("campus")
+# LIBRARY is loaded from demo/library.json, ROOMS is sample data
 
 @mcp.tool()
 def check_book(title: str) -> dict:
@@ -516,7 +469,7 @@ def find_free_room(time: str) -> list[str]:
 if __name__ == "__main__":
     mcp.run()
 ```
-- Plug in: `claude mcp add campus -- python campus_mcp.py` → now Claude Code, Cursor, VS Code Copilot, n8n can all use `check_book`
+- Plug in: `claude mcp add campus -- python demo/campus_mcp.py` → now Claude Code, Cursor, VS Code Copilot, n8n can all use `check_book`
 - 🔗 Python SDK: https://github.com/modelcontextprotocol/python-sdk · Inspector (test tool): https://github.com/modelcontextprotocol/inspector
 
 ### Slide 27f — MCP Safety
@@ -578,11 +531,11 @@ if __name__ == "__main__":
 - 🎛 INTERACTIVE: animated stepper — click **Step** to move through: Think → Act (call tool) → Observe (result) → repeat → Answer. Side panel shows a live trace:
   - 🧠 Think: "User wants book 'Clean Code'. I should check availability."
   - 🔧 Act: `check_book(title="Clean Code")`
-  - 👀 Observe: `{available: false, due_back: "Oct 25"}`
+  - 👀 Observe: `{available: false, due_back: "Dec 15"}`
   - 🧠 Think: "Not available. Check for an alternative copy/ebook."
   - 🔧 Act: `search_catalog(query="Clean Code ebook")`
   - 👀 Observe: `{ebook: true, link: "..."}`
-  - ✅ Answer: "Print copy is out until Oct 25, but the ebook is available here…"
+  - ✅ Answer: "Print copy is out until Dec 15, but the ebook is available here…"
 - Stop conditions: task done · max steps reached · needs human approval · error
 
 ### Slide 30 — Multi-Agent Systems
@@ -610,7 +563,6 @@ if __name__ == "__main__":
 - **5-minute break**
 - 🎛 INTERACTIVE: countdown timer 05:00 (click to start)
 - Prompt on screen: *"Think of one boring task you'd hand to an agent."*
-- 🖼 IMAGE: `images/break.jpg` — fun/coffee image (optional)
 
 ---
 
@@ -622,36 +574,35 @@ if __name__ == "__main__":
 
 ### Slide 34 — What We're Building: Campus Helpdesk Agent
 - Goal: answer student questions, check library books, and create support tickets
-- 📊 DIAGRAM: Student → Agent (Claude model + loop) → tools: `check_book`, `search_faq`, `create_ticket` (needs approval) → Memory file
-- Stack: Python + Anthropic SDK (same pattern for OpenAI/Gemini)
+- 📊 DIAGRAM: Student → Agent (free OpenRouter model + loop) → tools: `check_book`, `search_faq`, `create_ticket` (needs approval) → Memory file
+- Stack: Python + OpenAI SDK + OpenRouter free model `nvidia/nemotron-3.5-lightning:free`, so students can run it themselves (same code works with local models)
 
 ### Slide 35 — Step-by-Step Builder
-- 🎛 INTERACTIVE: 6 tabs; each shows code (new lines highlighted) + explanation
-  1. **Setup & first call** — install SDK, send one message, print reply
+- 🎛 INTERACTIVE: 8 tabs; each shows code (new lines highlighted) + explanation
+  1. **Setup & first call** — free key from https://openrouter.ai/keys, `pip install openai`, set `OPENROUTER_API_KEY`, `base_url="https://openrouter.ai/api/v1"`, `MODEL = "nvidia/nemotron-3.5-lightning:free"`, send one message. Free limits: 20 requests a minute, 50 a day. Free model list changes: https://openrouter.ai/models?max_price=0
   2. **Give it a job** — system prompt: role, rules, tone
   3. **Add tools** — define `check_book`, `search_faq`, `create_ticket` + Python functions
-  4. **Add the loop** — call model → if `tool_use`, run tool, send `tool_result` back → repeat until done
-  5. **Add memory** — save conversation + user notes to a JSON file, reload next run
-  6. **Add guardrails** — max steps, human approval before `create_ticket`, input validation, logging
-  7. **Bonus: run it free on your laptop** — swap the client to LM Studio / Jan local server (OpenAI-compatible) with Qwen 3.5 4B; compare speed + tool-call accuracy vs cloud model
+  4. **Add the loop** — call model → if `msg.tool_calls`, run tool, send a `role: "tool"` message back → repeat until done
+  5. **Add memory** — save conversation to a JSON file, reload next run
+  6. **Add guardrails** — max steps, human approval before `create_ticket`, errors returned, logging
+  7. **Bonus: no internet** — change two lines to use LM Studio / Jan with Qwen 3.5 4B; compare speed + tool-call accuracy
+  8. **Cline + MCP** — `pip install "mcp[cli]>=2"`; install Cline in VS Code; Settings → API Provider: OpenRouter, paste key, pick a free Nemotron model; MCP Servers icon → Configure → Configure MCP Servers, add `campus` with `command: python` and the full path to `demo/campus_mcp.py`, `autoApprove: []`; ask "Is Python Crash Course available in the library?" and approve the tool call
 
 Core loop (step 4):
 ```python
 while True:
-    resp = client.messages.create(
-        model=MODEL, max_tokens=1024,
-        system=SYSTEM, tools=TOOLS, messages=messages)
-    messages.append({"role": "assistant", "content": resp.content})
-    if resp.stop_reason != "tool_use":
+    resp = client.chat.completions.create(
+        model=MODEL, messages=messages, tools=TOOLS)
+    msg = resp.choices[0].message
+    messages.append(msg)
+    if not msg.tool_calls:
         break
-    results = []
-    for block in resp.content:
-        if block.type == "tool_use":
-            output = run_tool(block.name, block.input)
-            results.append({"type": "tool_result",
-                            "tool_use_id": block.id,
-                            "content": json.dumps(output)})
-    messages.append({"role": "user", "content": results})
+    for call in msg.tool_calls:
+        args = json.loads(call.function.arguments)
+        output = run_tool(call.function.name, args)
+        messages.append({"role": "tool",
+                         "tool_call_id": call.id,
+                         "content": json.dumps(output)})
 ```
 
 ### Slide 36 — Run It: Watching the Agent Think
@@ -662,13 +613,6 @@ while True:
   - → ticket #1042 created → final answer
 - 🗣 NOTES: Run live from `demo/helpdesk_agent.py` if network allows; otherwise use this simulated trace.
 
-### Slide 37 — What Just Happened?
-- 📊 DIAGRAM: sequence diagram — User → Program → Model → Program runs tool → Model → … → User
-- Key insights:
-  - The **model chooses** tools; the **program executes** them
-  - ~60 lines of code = a working agent
-  - Everything else (frameworks) is convenience on top of this loop
-
 ### Slide 38 — Your Turn (Mini Challenge)
 - Extend the agent with one new tool:
   - `get_exam_timetable(course_code)`
@@ -676,8 +620,50 @@ while True:
   - `weather_today(city)` (call a free API)
 - Or: expose it as an MCP server and use it from Claude Code / Cursor / n8n
 - Or: rebuild the same agent in n8n with a local Qwen model — compare
-- Starter code + instructions: `demo/` folder (🔗 add GitHub repo link / QR here)
+- Starter code + instructions: `demo/` folder · 🔗 https://github.com/janarthan-j/tech_talk_frontiers-
 - 🖼 IMAGE: `images/repo-qr.png` — QR code to the code repo
+
+### Slide 38a — Run an LLM on Your Own Laptop
+- Why local: **free**, **private** (data never leaves laptop), **works offline**, great for experiments and learning
+- 📊 DIAGRAM: stack — Desktop app (LM Studio / Jan) → inference engine (**llama.cpp**) → model file (**GGUF**, quantized) → your CPU / GPU
+| Tool | What it is | Link |
+|---|---|---|
+| LM Studio | desktop app: discover, download, chat, local API server (llama.cpp; MLX on Mac) | 🔗 https://lmstudio.ai |
+| Jan | open-source ChatGPT-style desktop app, runs offline on llama.cpp | 🔗 https://www.jan.ai |
+| llama.cpp | the C/C++ engine underneath both | 🔗 https://github.com/ggml-org/llama.cpp |
+| Ollama | CLI-first alternative, also llama.cpp-based | 🔗 https://ollama.com |
+
+### Slide 38b — Which Model Fits My Laptop?
+- Small models are now good enough for experiments, tool calling basics, summarising, classification
+| Model (examples) | Size | Approx RAM (Q4) | Good for |
+|---|---|---|---|
+| Qwen 3.5 2B | 2B | ~2 GB | very fast; classify, extract, simple chat |
+| Qwen 3.5 4B | 4B | ~3–4 GB | best starter; basic tool calling, coding help |
+| Qwen 3.5 9B / Gemma / Llama 8B class | 8–9B | ~6–8 GB | stronger reasoning, needs 16 GB laptop |
+- Key terms:
+  - **Quantization** (Q4, Q5, Q8) — compress weights; Q4 ≈ ¼ size, small quality loss
+  - **GGUF** — model file format used by llama.cpp
+  - Rule of thumb: **~0.6 GB RAM per billion params at Q4** + room for context
+- 🔗 Find models: https://huggingface.co/Qwen · https://lmstudio.ai/models
+- 🗣 NOTES: Check exact model names/sizes on Hugging Face on the day; small-model lineup changes often. Live: download Qwen 4B in LM Studio and chat offline (turn Wi-Fi off for effect).
+
+### Slide 38c — Your Laptop Is Now an AI API
+- LM Studio and Jan expose an **OpenAI-compatible server** → any code written for OpenAI works locally by changing one line
+| App | Default local endpoint |
+|---|---|
+| LM Studio | `http://localhost:1234/v1` |
+| Jan | `http://localhost:1337/v1` |
+| Ollama | `http://localhost:11434/v1` |
+```python
+from openai import OpenAI
+client = OpenAI(base_url="http://localhost:1234/v1", api_key="local")
+resp = client.chat.completions.create(
+    model="qwen3.5-4b",   # name as shown in LM Studio
+    messages=[{"role": "user", "content": "Explain recursion in 2 lines"}])
+print(resp.choices[0].message.content)
+```
+- Same server can plug into n8n, VS Code extensions (Cline, Continue), and our Build-section agent
+- Limits: slower than cloud, weaker reasoning, small models make more tool-call mistakes → great for learning, test carefully before production
 
 ---
 
@@ -761,7 +747,6 @@ while True:
   6. **Forward Deployed / AI Solutions Engineer** — builds AI solutions with customers. Skills: coding + communication + domain knowledge
   7. **AI Product Manager** — decides what AI should (and shouldn't) do. Skills: user research, metrics, AI limitations
   8. **Data Engineer for AI** — pipelines, vector DBs, data quality. Skills: SQL, ETL, embeddings
-- 🖼 IMAGE: `images/careers.jpg` — optional header image
 
 ### Slide 48 — Existing Roles Are Evolving
 | Role | Before | Now |
@@ -827,9 +812,7 @@ while True:
 
 ### Slide 55 — Q&A + Thank You
 - **Questions?**
-- Janarthan Jeyachandran · GitHub: github.com/janarthan-j
-- 🖼 IMAGE: `images/qr-slides.png` — QR to slides / code repo
-- 🖼 IMAGE: `images/qr-feedback.png` — QR to feedback form
+- Janarthan Jeyachandran · Email: jeyjanarthan@gmail.com · LinkedIn: linkedin.com/in/janarthan-jeyachandran-42249b148 · GitHub: github.com/janarthan-j
 - 🖼 IMAGE: `images/speaker.jpg` — speaker photo (optional)
 
 ---
@@ -840,26 +823,26 @@ while True:
 |---|---|---|
 | Title + Agenda | 1–2 | (part of Opening) |
 | Opening | 3–7 | 10 |
-| Trends (incl. local LLMs 14a–14c) | 8–16 | 20 — keep tool demo to 4 min, local LLM demo 4 min |
-| The Shift (incl. n8n / Google 22a–22e) | 17–22e | 15 — one 4-min live n8n demo, skim 22d |
+| Trends | 8–16 | 20 — keep tool demo to 4 min |
+| The Shift (incl. n8n 22a–22e) | 17–22e | 15 — one 4-min live n8n demo |
 | Agents Explained (incl. tools 26a–26e, MCP 27–27f, context 28–28b) | 23–31 | 20 — tools ~6 min, MCP ~5 min, context ~4 min, rest ~5 min. Tightest section: consider taking 5 min from Trends |
 | Break | 32 | 5 |
-| Build | 33–38 | 20 |
+| Build (incl. local LLMs 38a–38c) | 33–38c | 20 — local LLM demo 4 min |
 | Production | 39–45 | 12 |
 | Careers | 46–49 | 10 |
 | Closing + Q&A | 50–55 | 8 |
 
-Total 77 slides (8 dividers). Content is dense — slides marked ⏩ below can be skipped live and left for students to read later:
-⏩ 14 (Beyond writing code), 22d (Google options), 26c (Good tool design), 27e (Own MCP server — also in Build challenge), 27f (MCP safety — repeated in Production), 30 (Multi-agent), 48 (Evolving roles).
+Total 75 slides (8 dividers). Content is dense — slides marked ⏩ below can be skipped live and left for students to read later:
+⏩ 14 (Beyond writing code), 26c (Good tool design), 27e (Own MCP server — also in Build challenge), 27f (MCP safety — repeated in Production), 30 (Multi-agent), 48 (Evolving roles).
 
 ## Image list (all optional placeholders)
 
-`title-bg.jpg`, `ieee-logo.png`, `dev-with-ai.jpg`, `chat-ui.png`, `ide-copilot.png`, `terminal-agent.png`, `app-builder.png`, `demo-fallback.png`, `lmstudio.png`, `jan.png`, `use-support.png`, `use-coding.png`, `use-data.png`, `use-ops.png`, `n8n-agent-node.png`, `n8n-email-agent.png`, `n8n-issue-triage.png`, `google-opal.png`, `coding-agent-tools.png`, `mcp-architecture.png`, `break.jpg`, `repo-qr.png`, `careers.jpg`, `qr-slides.png`, `qr-feedback.png`, `speaker.jpg`
+`title-bg.jpg`, `ieee-logo.png`, `chat-ui.png`, `ide-copilot.png`, `terminal-agent.png`, `app-builder.png`, `n8n-email-agent.png`, `mcp-architecture.png`, `repo-qr.png`, `speaker.jpg`, `senzmate-logo.png`
 
 ## Open questions for you
 
 1. Speaker name, branch name, date for title slide?
 2. Demo agent language: **Python** (planned) or JavaScript/TypeScript?
-3. Demo model provider: **Anthropic Claude** (planned), OpenAI, or Gemini (free tier via AI Studio may suit students)?
+3. Demo model provider: **OpenRouter free models** (decided)
 4. Theme preference: dark (default) or light, any IEEE brand colours?
 5. Do you want the `demo/` agent code written as real runnable files too?

@@ -1,17 +1,19 @@
 """Campus MCP server — exposes campus tools to any MCP-compatible AI app.
 
-    pip install "mcp[cli]"
+    pip install "mcp[cli]>=2"
     claude mcp add campus -- python demo/campus_mcp.py      (Claude Code)
     mcp dev demo/campus_mcp.py                              (test in MCP Inspector)
 """
-from mcp.server.fastmcp import FastMCP
+import json
+import pathlib
 
-mcp = FastMCP("campus")
+from mcp.server.mcpserver import MCPServer
 
-LIBRARY = {
-    "clean code": {"available": False, "due_back": "2026-10-25"},
-    "sicp": {"available": True, "shelf": "QA76.6"},
-}
+mcp = MCPServer("campus")
+
+# "Import" the catalogue from a JSON file, the way an app would load a database table.
+_books = json.loads((pathlib.Path(__file__).parent / "library.json").read_text(encoding="utf-8"))["books"]
+LIBRARY = {book["title"].lower(): book for book in _books}
 ROOMS = {"A101": ["09:00", "10:00"], "B204": ["14:00"], "C310": []}
 
 

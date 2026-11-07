@@ -23,7 +23,7 @@ By the end, students can:
 6. Identify new AI roles and the skills each needs.
 7. Use and build tools: common tools, custom tools, MCP servers, and customising coding agents.
 7a. Explain MCP (host, client, server; tools, resources, prompts) and context engineering (what goes into the context window and why).
-8. Build a no-code agent workflow in n8n (and know Google's options).
+8. Build a no-code agent workflow in n8n.
 9. Run small LLMs (e.g. Qwen 3.5 2B/4B) on their own laptop with LM Studio or Jan.
 
 ## Session plan (120 min)
@@ -49,9 +49,10 @@ By the end, students can:
 | `index.html` | The interactive slide deck (open in Chrome / Edge) |
 | `assets/deck.css`, `assets/deck.js` | Deck styles and engine (navigation, interactives, highlighting) |
 | `images/` | Put your images here — placeholders pick them up automatically by filename |
-| `demo/helpdesk_agent.py` | Campus Helpdesk Agent (Claude API) from the Build section |
+| `demo/helpdesk_agent.py` | Campus Helpdesk Agent from the Build section, on a free OpenRouter model |
 | `demo/local_agent.py` | Same agent on a local model via LM Studio / Jan |
 | `demo/campus_mcp.py` | Small MCP server exposing `check_book` and `find_free_room` |
+| `demo/library.json` | Sample library catalogue (50 books), loaded by both demos like a database import |
 
 ## Planned deck features (`index.html`)
 
@@ -69,14 +70,14 @@ Each placeholder in `content.md` is marked `🖼 IMAGE: images/<filename> — <w
 ## Running the demo agent (Build section)
 
 ```bash
-pip install anthropic
+pip install openai
 ```
 
 ```bash
 python demo/helpdesk_agent.py
 ```
 
-Needs an API key in the `ANTHROPIC_API_KEY` environment variable. Same pattern works with OpenAI / Gemini SDKs; only the client calls change.
+Needs a free key from https://openrouter.ai/keys in the `OPENROUTER_API_KEY` environment variable. Free limits: 20 requests a minute, 50 a day. Free models change: https://openrouter.ai/models?max_price=0
 
 ### Free / local option
 
@@ -85,7 +86,7 @@ Run the demo with no API key using a local model:
 1. Install LM Studio (https://lmstudio.ai) or Jan (https://www.jan.ai)
 2. Download a small model (e.g. Qwen 3.5 4B, Q4 quantization)
 3. Start the local server (LM Studio `http://localhost:1234/v1`, Jan `http://localhost:1337/v1`)
-4. Point the OpenAI-compatible client at that `base_url`
+4. Run `python demo/local_agent.py` (it changes only the client's `base_url` and the model)
 
 ### n8n demo
 
@@ -99,7 +100,7 @@ Opens at `http://localhost:5678`. Import the example workflows from `demo/n8n/` 
 
 - [ ] Test projector resolution and theme (light theme for bright rooms)
 - [ ] Pre-open demo tools in browser tabs (links in `content.md`)
-- [ ] Have API key set and demo agent run once before the session
+- [ ] Have `OPENROUTER_API_KEY` set, confirm the free model still exists, and run the demo agent once before the session
 - [ ] LM Studio / Jan installed with Qwen small model pre-downloaded (don't download on venue Wi-Fi)
 - [ ] n8n running locally with example workflows imported and credentials set
 - [ ] Offline fallback: screenshots of each live demo in `images/`

@@ -281,3 +281,326 @@ input[type="range"] { width: 100%; accent-color: var(--acc2); height: 26px; }
 [data-tabs] .g3[data-p].on, [data-tabs] .g4[data-p].on { display: grid; }
 .row > *, .col > *, .g2 > *, .g3 > *, .g4 > * { min-width: 0; }
 pre.code.wrap { white-space: pre-wrap; word-break: break-word; }
+
+/* table + full-size screenshot slides */
+.shot-row { min-height: 0; }
+.shot-row .txt { flex: 0 0 41%; }
+.shot-row .txt table.t { height: 100%; }
+.shot-row .txt table.t th { height: 36px; }
+.shot-row .txt table.t td { vertical-align: middle; }
+.shot-row .vis { flex: 1; min-height: 0; }
+.shot-row .ph { flex: 1; min-height: 0; position: relative; }
+.shot-row .ph.has-img img { position: absolute; inset: 0; }
+.shot-row .ph.left img { object-position: left center; }
+
+/* company logo: white plate so it reads on the dark theme */
+.co-logo { align-self: flex-start; height: 56px; width: auto; background: #fff; padding: 8px 14px; border-radius: 10px; box-sizing: content-box; }
+
+/* live demo slide: looping 2D animations */
+.demo-cards { min-height: 0; }
+.demo-cards .card { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; min-height: 0; }
+.demo-cards .card p { font-size: 14.5px; line-height: 1.3; min-height: 38px; }
+.demo-cards .steps { font-size: 15px; color: var(--muted); text-align: center; }
+.demo-cards .steps b { color: var(--ink); }
+.demo-anim { display: block; width: 100%; flex: 1; min-height: 0; }
+.demo-anim text { font-family: "Inter", sans-serif; }
+.demo-anim .k { animation: 12s linear infinite both; }
+.demo-anim .win { fill: var(--panel2); stroke: var(--line); stroke-width: 1.5; }
+.demo-anim .ln { fill: var(--muted); opacity: .45; }
+.demo-anim .ln.g { fill: var(--acc2); opacity: 1; }
+.demo-anim .lbl { font-size: 12px; font-weight: 600; fill: var(--muted); text-anchor: middle; }
+.demo-anim .cap { font-size: 15px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.demo-anim .emo { font-size: 22px; }
+.demo-anim .bot { font-size: 26px; }
+.demo-anim .pill.acc { fill: var(--acc); }
+.demo-anim .pill.acc2 { fill: var(--acc2); }
+.demo-anim .pill.bad { fill: var(--bad); }
+.demo-anim .pilltx { font-size: 13px; font-weight: 700; fill: #0a0f1f; text-anchor: middle; }
+:root[data-theme="light"] .demo-anim .pilltx { fill: #fff; }
+.demo-anim .bub { fill: var(--acc); }
+.demo-anim .dot { fill: var(--muted); animation: demo-bounce .9s ease-in-out infinite; }
+.demo-anim .d2 { animation-delay: .15s; } .demo-anim .d3 { animation-delay: .3s; }
+.demo-anim .sel { fill: var(--acc); fill-opacity: .28; transform-box: fill-box; transform-origin: left center; }
+.demo-anim .ask { fill: var(--panel); stroke: var(--acc); stroke-width: 2; }
+.demo-anim .asktx { font-size: 14px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.demo-anim .dfr { fill: color-mix(in srgb, var(--bad) 25%, var(--panel2)); }
+.demo-anim .dfg { fill: color-mix(in srgb, var(--acc2) 25%, var(--panel2)); }
+.demo-anim .mono { font-family: "JetBrains Mono", monospace; font-size: 11px; fill: var(--ink); }
+.demo-anim .mono.bad { fill: var(--bad); } .demo-anim .mono.good { fill: var(--acc2); }
+.demo-anim .btn { transform-box: fill-box; transform-origin: center; }
+.demo-anim .done { font-size: 15px; font-weight: 700; fill: var(--acc2); text-anchor: middle; }
+.demo-anim .cur { fill: var(--ink); stroke: var(--panel); stroke-width: 1; }
+.demo-anim .flow { fill: none; stroke: var(--acc); stroke-width: 2; stroke-dasharray: 5 5; animation: demo-flow 1s linear infinite; }
+.demo-anim .lit { fill: var(--acc2); fill-opacity: .22; stroke: var(--acc2); stroke-width: 2; }
+.demo-anim .stn { font-size: 15px; font-weight: 600; fill: var(--ink); }
+.demo-anim .term { fill: var(--panel); stroke: var(--line); }
+.demo-anim .log { text-anchor: middle; font-size: 12px; }
+@keyframes demo-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes demo-flow { to { stroke-dashoffset: -10; } }
+@keyframes c1code { 0%{transform:translate(30px,150px);opacity:0}3%{transform:translate(30px,150px);opacity:1}18%{transform:translate(200px,150px);opacity:1}21%{transform:translate(200px,150px);opacity:0}100%{transform:translate(200px,150px);opacity:0} }
+@keyframes c1ans { 0%{transform:translate(200px,150px);opacity:0}40%{transform:translate(200px,150px);opacity:0}43%{transform:translate(200px,150px);opacity:1}60%{transform:translate(30px,150px);opacity:1}63%{transform:translate(30px,150px);opacity:0}100%{transform:translate(30px,150px);opacity:0} }
+@keyframes c1paste { 0%{opacity:0}61%{opacity:0}62%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c1err { 0%{opacity:0}73%{opacity:0}74%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c1q { 0%{opacity:0}18%{opacity:0}19%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c1dots { 0%{opacity:0}20%{opacity:0}21%{opacity:1}39%{opacity:1}40%{opacity:0}100%{opacity:0} }
+@keyframes c1a { 0%{opacity:0}38%{opacity:0}39%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c1cap0 { 0%{opacity:1}20%{opacity:1}21%{opacity:0}100%{opacity:0} }
+@keyframes c1cap1 { 0%{opacity:0}20%{opacity:0}21%{opacity:1}39%{opacity:1}40%{opacity:0}100%{opacity:0} }
+@keyframes c1cap2 { 0%{opacity:0}39%{opacity:0}40%{opacity:1}61%{opacity:1}62%{opacity:0}100%{opacity:0} }
+@keyframes c1cap3 { 0%{opacity:0}61%{opacity:0}62%{opacity:1}73%{opacity:1}74%{opacity:0}100%{opacity:0} }
+@keyframes c1cap4 { 0%{opacity:0}73%{opacity:0}74%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c2sel { 0%,4%{transform:scaleX(0);opacity:1}15%,44%{transform:scaleX(1);opacity:1}46%,100%{transform:scaleX(1);opacity:0} }
+@keyframes c2btn { 0%,50%{opacity:0;transform:scale(1)}52%,69%{opacity:1;transform:scale(1)}71%{opacity:1;transform:scale(.88)}73%{opacity:1;transform:scale(1)}76%,100%{opacity:0;transform:scale(1)} }
+@keyframes c2cur { 0%{transform:translate(60px,44px);opacity:0}3%{transform:translate(60px,44px);opacity:1}14%{transform:translate(262px,76px);opacity:1}50%{transform:translate(262px,76px);opacity:1}68%{transform:translate(248px,140px);opacity:1}74%{transform:translate(248px,140px);opacity:1}78%{transform:translate(248px,140px);opacity:0}100%{transform:translate(248px,140px);opacity:0} }
+@keyframes c2ask { 0%{opacity:0}17%{opacity:0}18%{opacity:1}45%{opacity:1}46%{opacity:0}100%{opacity:0} }
+@keyframes c2diff { 0%{opacity:0}46%{opacity:0}47%{opacity:1}75%{opacity:1}76%{opacity:0}100%{opacity:0} }
+@keyframes c2ok { 0%{opacity:0}76%{opacity:0}77%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c2cap0 { 0%{opacity:1}17%{opacity:1}18%{opacity:0}100%{opacity:0} }
+@keyframes c2cap1 { 0%{opacity:0}17%{opacity:0}18%{opacity:1}46%{opacity:1}47%{opacity:0}100%{opacity:0} }
+@keyframes c2cap2 { 0%{opacity:0}46%{opacity:0}47%{opacity:1}67%{opacity:1}68%{opacity:0}100%{opacity:0} }
+@keyframes c2cap3 { 0%{opacity:0}67%{opacity:0}68%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c3bot { 0%{transform:translate(116px,12px);opacity:0}8%{transform:translate(116px,12px);opacity:0}10%{transform:translate(116px,12px);opacity:1}24%{transform:translate(116px,12px);opacity:1}27%{transform:translate(280px,12px);opacity:1}38%{transform:translate(280px,12px);opacity:1}41%{transform:translate(280px,88px);opacity:1}50%{transform:translate(280px,88px);opacity:1}53%{transform:translate(280px,12px);opacity:1}62%{transform:translate(280px,12px);opacity:1}65%{transform:translate(280px,88px);opacity:1}74%{transform:translate(280px,88px);opacity:1}77%{transform:translate(116px,88px);opacity:1}100%{transform:translate(116px,88px);opacity:1} }
+@keyframes c3log0 { 0%{opacity:1}9%{opacity:1}10%{opacity:0}100%{opacity:0} }
+@keyframes c3log1 { 0%{opacity:0}9%{opacity:0}10%{opacity:1}23%{opacity:1}24%{opacity:0}100%{opacity:0} }
+@keyframes c3log2 { 0%{opacity:0}23%{opacity:0}24%{opacity:1}37%{opacity:1}38%{opacity:0}100%{opacity:0} }
+@keyframes c3log3 { 0%{opacity:0}37%{opacity:0}38%{opacity:1}49%{opacity:1}50%{opacity:0}100%{opacity:0} }
+@keyframes c3log4 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}61%{opacity:1}62%{opacity:0}100%{opacity:0} }
+@keyframes c3log5 { 0%{opacity:0}61%{opacity:0}62%{opacity:1}73%{opacity:1}74%{opacity:0}100%{opacity:0} }
+@keyframes c3log6 { 0%{opacity:0}73%{opacity:0}74%{opacity:1}87%{opacity:1}88%{opacity:0}100%{opacity:0} }
+@keyframes c3log7 { 0%{opacity:0}87%{opacity:0}88%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c3s0 { 0%{opacity:0}9%{opacity:0}10%{opacity:1}24%{opacity:1}25%{opacity:0}100%{opacity:0} }
+@keyframes c3s1 { 0%{opacity:0}26%{opacity:0}27%{opacity:1}38%{opacity:1}39%{opacity:0}52%{opacity:0}53%{opacity:1}62%{opacity:1}63%{opacity:0}100%{opacity:0} }
+@keyframes c3s2 { 0%{opacity:0}40%{opacity:0}41%{opacity:1}50%{opacity:1}51%{opacity:0}64%{opacity:0}65%{opacity:1}74%{opacity:1}75%{opacity:0}100%{opacity:0} }
+@keyframes c3s3 { 0%{opacity:0}76%{opacity:0}77%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@keyframes c3cap0 { 0%{opacity:1}9%{opacity:1}10%{opacity:0}100%{opacity:0} }
+@keyframes c3cap1 { 0%{opacity:0}9%{opacity:0}10%{opacity:1}23%{opacity:1}24%{opacity:0}100%{opacity:0} }
+@keyframes c3cap2 { 0%{opacity:0}23%{opacity:0}24%{opacity:1}37%{opacity:1}38%{opacity:0}100%{opacity:0} }
+@keyframes c3cap3 { 0%{opacity:0}37%{opacity:0}38%{opacity:1}49%{opacity:1}50%{opacity:0}100%{opacity:0} }
+@keyframes c3cap4 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}73%{opacity:1}74%{opacity:0}100%{opacity:0} }
+@keyframes c3cap5 { 0%{opacity:0}73%{opacity:0}74%{opacity:1}87%{opacity:1}88%{opacity:0}100%{opacity:0} }
+@keyframes c3cap6 { 0%{opacity:0}87%{opacity:0}88%{opacity:1}99%{opacity:1}100%{opacity:0} }
+@media (prefers-reduced-motion: reduce) { .demo-anim .k, .demo-anim .dot, .demo-anim .flow { animation: none; } .demo-anim .k { display: none; } }
+
+/* agents in the real world: looping sample runs */
+.use-anim .u { animation: 12s linear infinite both; }
+.use-anim .urow { fill: var(--panel2); stroke: var(--line); stroke-width: 1.5; }
+.use-anim .ulit { fill: var(--acc2); fill-opacity: .16; stroke: var(--acc2); stroke-width: 2; }
+.use-anim .upulse { fill: var(--bad); fill-opacity: .3; stroke: var(--bad); stroke-width: 2; }
+.use-anim .ut { font-size: 14px; font-weight: 700; fill: var(--ink); }
+.use-anim .ud { font-size: 12.5px; fill: var(--muted); }
+.use-anim .um { font-family: "JetBrains Mono", monospace; font-size: 11.5px; fill: var(--muted); }
+.use-anim .good { fill: var(--acc2); font-weight: 600; }
+.use-anim .bad { fill: var(--bad); font-weight: 600; }
+.use-anim .ucap { font-size: 14px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.use-anim .udg { fill: var(--acc2); } .use-anim .udr { fill: var(--bad); }
+.use-anim .utrack { fill: var(--line); }
+.use-anim .ubar { fill: var(--acc2); transform-box: fill-box; transform-origin: left center; }
+.use-anim .ugrow { transform-box: fill-box; transform-origin: center bottom; }
+@keyframes uin0 { 0%{opacity:0}1%{opacity:0}2%{opacity:1}96%{opacity:1}97%{opacity:0}100%{opacity:0} }
+@keyframes ulit0 { 0%{opacity:0}1%{opacity:0}2%{opacity:1}26%{opacity:1}27%{opacity:0}100%{opacity:0} }
+@keyframes ucap0 { 0%{opacity:0}1%{opacity:0}2%{opacity:1}26%{opacity:1}27%{opacity:0}100%{opacity:0} }
+@keyframes uin1 { 0%{opacity:0}25%{opacity:0}26%{opacity:1}96%{opacity:1}97%{opacity:0}100%{opacity:0} }
+@keyframes ulit1 { 0%{opacity:0}25%{opacity:0}26%{opacity:1}50%{opacity:1}51%{opacity:0}100%{opacity:0} }
+@keyframes ucap1 { 0%{opacity:0}25%{opacity:0}26%{opacity:1}50%{opacity:1}51%{opacity:0}100%{opacity:0} }
+@keyframes uin2 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}96%{opacity:1}97%{opacity:0}100%{opacity:0} }
+@keyframes ulit2 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}74%{opacity:1}75%{opacity:0}100%{opacity:0} }
+@keyframes ucap2 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}74%{opacity:1}75%{opacity:0}100%{opacity:0} }
+@keyframes uin3 { 0%{opacity:0}73%{opacity:0}74%{opacity:1}96%{opacity:1}97%{opacity:0}100%{opacity:0} }
+@keyframes ulit3 { 0%{opacity:0}73%{opacity:0}74%{opacity:1}96%{opacity:1}97%{opacity:0}100%{opacity:0} }
+@keyframes ucap3 { 0%{opacity:0}73%{opacity:0}74%{opacity:1}96%{opacity:1}97%{opacity:0}100%{opacity:0} }
+@keyframes ubot { 0%{transform:translate(2px,22px);opacity:0}2%{transform:translate(2px,22px);opacity:1}24%{transform:translate(2px,22px);opacity:1}26%{transform:translate(2px,96px);opacity:1}48%{transform:translate(2px,96px);opacity:1}50%{transform:translate(2px,170px);opacity:1}72%{transform:translate(2px,170px);opacity:1}74%{transform:translate(2px,244px);opacity:1}96%{transform:translate(2px,244px);opacity:1}98%{transform:translate(2px,244px);opacity:0}100%{transform:translate(2px,244px);opacity:0} }
+@keyframes uscan { 0%{opacity:0}25%{opacity:0}26%{opacity:1}36%{opacity:1}37%{opacity:0}100%{opacity:0} }
+@keyframes ufound { 0%{opacity:0}36%{opacity:0}37%{opacity:1}96%{opacity:1}97%{opacity:0}100%{opacity:0} }
+@keyframes upulse { 0%,100%{opacity:0}2%,8%,14%,20%{opacity:.85}5%,11%,17%,24%{opacity:.15}26%{opacity:0} }
+@keyframes ubar { 0%,50%{transform:scaleX(0)}66%,100%{transform:scaleX(1)} }
+@keyframes uresult { 0%{opacity:0}65%{opacity:0}66%{opacity:1}96%{opacity:1}97%{opacity:0}100%{opacity:0} }
+@keyframes ugrow { 0%,74%{transform:scaleY(0)}84%,100%{transform:scaleY(1)} }
+@media (prefers-reduced-motion: reduce) { .use-anim .u { animation: none; } .use-anim .x, .use-anim .ulit, .use-anim .ucap { display: none; } }
+
+/* n8n slide: animated sample workflow */
+.n8n-anim .n { animation: 14s linear infinite both; }
+.n8n-anim .cv { fill: var(--panel); stroke: var(--line); stroke-width: 1.5; }
+.n8n-anim .gd { fill: var(--line); }
+.n8n-anim .ttl { font-size: 13px; font-weight: 600; fill: var(--muted); }
+.n8n-anim .nd { fill: var(--panel2); stroke: var(--line); stroke-width: 2; }
+.n8n-anim .ndlit { fill: var(--acc2); fill-opacity: .2; stroke: var(--acc2); stroke-width: 3; }
+.n8n-anim .wire { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; }
+.n8n-anim .wire.solid { stroke-dasharray: none; stroke-width: 2; }
+.n8n-anim .ic { font-size: 24px; text-anchor: middle; }
+.n8n-anim .nl { font-size: 13.5px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+.n8n-anim .ns { font-size: 11.5px; fill: var(--muted); text-anchor: middle; }
+.n8n-anim .pkt { fill: var(--acc); stroke: var(--panel); stroke-width: 2; }
+.n8n-anim .pl { fill: var(--acc); }
+.n8n-anim .pltx { font-size: 11.5px; font-weight: 700; fill: #0a0f1f; text-anchor: middle; }
+:root[data-theme="light"] .n8n-anim .pltx { fill: #fff; }
+.n8n-anim .lgb { fill: var(--panel2); stroke: var(--line); }
+.n8n-anim .lgh { font-size: 11px; font-weight: 700; letter-spacing: .08em; fill: var(--muted); }
+.n8n-anim .lg { font-family: "JetBrains Mono", monospace; font-size: 12px; fill: var(--ink); }
+@keyframes nlog0 { 0%{opacity:0}1%{opacity:0}2%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes nlog1 { 0%{opacity:0}9%{opacity:0}10%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes nlog2 { 0%{opacity:0}21%{opacity:0}22%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes nlog3 { 0%{opacity:0}35%{opacity:0}36%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes nlog4 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes nlog5 { 0%{opacity:0}61%{opacity:0}62%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes nlog6 { 0%{opacity:0}71%{opacity:0}72%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes nlt { 0%{opacity:0}1%{opacity:1}9%{opacity:1}10%{opacity:0}100%{opacity:0} }
+@keyframes nla { 0%{opacity:0}8%{opacity:0}9%{opacity:1}80%{opacity:1}81%{opacity:0}100%{opacity:0} }
+@keyframes nlr { 0%{opacity:0}73%{opacity:0}74%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes nlp1 { 0%{opacity:0}21%{opacity:0}22%{opacity:1}49%{opacity:1}50%{opacity:0}100%{opacity:0} }
+@keyframes nlp2 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}72%{opacity:1}73%{opacity:0}100%{opacity:0} }
+@keyframes nlm { 0%{opacity:0}21%{opacity:0}22%{opacity:1}36%{opacity:1}37%{opacity:0}49%{opacity:0}50%{opacity:1}62%{opacity:1}63%{opacity:0}100%{opacity:0} }
+@keyframes nlb { 0%{opacity:0}9%{opacity:0}10%{opacity:1}22%{opacity:1}23%{opacity:0}61%{opacity:0}62%{opacity:1}72%{opacity:1}73%{opacity:0}100%{opacity:0} }
+@keyframes nlk { 0%{opacity:0}35%{opacity:0}36%{opacity:1}50%{opacity:1}51%{opacity:0}100%{opacity:0} }
+@keyframes npa { 0%{transform:translate(104px,96px);opacity:0}2%{transform:translate(104px,96px);opacity:0}3%{transform:translate(104px,96px);opacity:1}8%{transform:translate(150px,96px);opacity:1}9%{transform:translate(150px,96px);opacity:0}100%{transform:translate(150px,96px);opacity:0} }
+@keyframes npb { 0%{transform:translate(205px,132px);opacity:0}10%{transform:translate(205px,132px);opacity:0}11%{transform:translate(205px,132px);opacity:1}16%{transform:translate(170px,206px);opacity:1}21%{transform:translate(205px,132px);opacity:1}22%{transform:translate(205px,132px);opacity:0}62%{transform:translate(205px,132px);opacity:0}63%{transform:translate(205px,132px);opacity:1}67%{transform:translate(170px,206px);opacity:1}71%{transform:translate(205px,132px);opacity:1}72%{transform:translate(205px,132px);opacity:0}100%{transform:translate(205px,132px);opacity:0} }
+@keyframes npm { 0%{transform:translate(180px,132px);opacity:0}22%{transform:translate(180px,132px);opacity:0}23%{transform:translate(180px,132px);opacity:1}29%{transform:translate(60px,206px);opacity:1}35%{transform:translate(180px,132px);opacity:1}36%{transform:translate(180px,132px);opacity:0}50%{transform:translate(180px,132px);opacity:0}51%{transform:translate(180px,132px);opacity:1}56%{transform:translate(60px,206px);opacity:1}61%{transform:translate(180px,132px);opacity:1}62%{transform:translate(180px,132px);opacity:0}100%{transform:translate(180px,132px);opacity:0} }
+@keyframes npk { 0%{transform:translate(240px,132px);opacity:0}36%{transform:translate(240px,132px);opacity:0}37%{transform:translate(240px,132px);opacity:1}43%{transform:translate(280px,206px);opacity:1}49%{transform:translate(240px,132px);opacity:1}50%{transform:translate(240px,132px);opacity:0}100%{transform:translate(240px,132px);opacity:0} }
+@keyframes npr { 0%{transform:translate(296px,96px);opacity:0}73%{transform:translate(296px,96px);opacity:0}74%{transform:translate(296px,96px);opacity:1}79%{transform:translate(342px,96px);opacity:1}80%{transform:translate(342px,96px);opacity:0}100%{transform:translate(342px,96px);opacity:0} }
+@media (prefers-reduced-motion: reduce) { .n8n-anim .n { animation: none; } .n8n-anim .x { display: none; } }
+
+/* full-width workflow image with compact flow below */
+.flow-compact { min-height: 0; }
+.flow-compact .col { gap: 8px; min-width: 0; }
+.flow-compact .flow { gap: 6px; flex-wrap: nowrap; }
+.flow-compact .node { font-size: 13.5px; padding: 6px 10px; }
+.flow-compact .node small { font-size: 11.5px; }
+.flow-compact .ar { font-size: 14px; white-space: nowrap; }
+.flow-compact .subnodes { gap: 6px; margin: 0; }
+.flow-compact .chip { font-size: 12.5px; padding: 3px 9px; }
+
+/* take-home steps */
+.homework { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.homework ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 7px; flex: 1; justify-content: space-around; }
+.homework li { font-size: 15px; line-height: 1.35; color: var(--muted); }
+.homework li b { color: var(--ink); }
+
+/* coding agent tools: animation follows the Step button */
+.cat .tv { opacity: 0; transition: opacity .35s; }
+[data-step-at="0"] .cat .v0 { opacity: 1; }
+[data-step-at="1"] .cat .v1 { opacity: 1; }
+[data-step-at="2"] .cat .v2 { opacity: 1; }
+[data-step-at="3"] .cat .v3 { opacity: 1; }
+[data-step-at="4"] .cat .v4 { opacity: 1; }
+[data-step-at="5"] .cat .v5 { opacity: 1; }
+.cat .catbot { transition: transform .6s ease; transform: translateX(260px); }
+[data-step-at="0"] .cat .catbot { transform: translateX(260px); }
+[data-step-at="1"] .cat .catbot { transform: translateX(65px); }
+[data-step-at="2"] .cat .catbot { transform: translateX(195px); }
+[data-step-at="3"] .cat .catbot { transform: translateX(325px); }
+[data-step-at="4"] .cat .catbot { transform: translateX(455px); }
+[data-step-at="5"] .cat .catbot { transform: translateX(65px); }
+.cat .bot { text-anchor: middle; font-size: 30px; }
+.cat .cbob { animation: cat-bob 1.4s ease-in-out infinite; }
+@keyframes cat-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+.cat .ttl { font-size: 12px; font-weight: 700; fill: var(--muted); }
+.cat .ctp { font-size: 14.5px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.cat .mono { font-size: 12.5px; white-space: pre; }
+.cat .cl { fill: var(--ink); }
+.cat .ln-n { fill: var(--muted); opacity: .7; }
+.cat .hit { fill: var(--warn); fill-opacity: .22; }
+.cat .fix { fill: var(--acc2); fill-opacity: .18; }
+.cat .term-ok { fill: none; stroke: var(--acc2); stroke-width: 2.5; }
+.cat .cap { font-size: 15px; }
+@media (prefers-reduced-motion: reduce) { .cat .cbob { animation: none; } .cat .tv, .cat .catbot { transition: none; } }
+
+/* local AI slide: benefits, then stack + table filling the rest */
+.local-ai { gap: 16px; min-height: 0; }
+.local-ai .benefits .card { padding: 14px 18px; }
+.local-ai .benefits h3 { font-size: 20px; margin-bottom: 4px; }
+.local-ai .benefits p { font-size: 15.5px; }
+.local-ai .stack { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.local-ai .stack > div { flex: 1; align-items: center; font-size: 19px; }
+.local-ai .stack small { font-size: 15px; }
+.local-ai table.t { height: 100%; font-size: 17.5px; }
+.local-ai table.t th { height: 36px; }
+.local-ai table.t td { vertical-align: middle; font-size: 17.5px; padding: 8px 12px; }
+
+/* show >= and -> exactly as typed, so students copy them correctly */
+code, pre.code, .term { font-variant-ligatures: none; }
+
+/* opening slide: developer working with AI */
+.dev-anim .d { animation: 14s linear infinite both; }
+.dev-anim .dline { transform-box: fill-box; transform-origin: left center; }
+.dev-anim .dr { fill: var(--bad); } .dev-anim .dy { fill: var(--warn); } .dev-anim .dg { fill: var(--acc2); }
+.dev-anim .dfile { font-family: "JetBrains Mono", monospace; font-size: 13px; fill: var(--muted); }
+.dev-anim .dscan { fill: var(--warn); fill-opacity: .28; }
+.dev-anim .dbar { fill: var(--panel); stroke: var(--line); }
+.dev-anim .dst { font-family: "JetBrains Mono", monospace; font-size: 13px; fill: var(--muted); }
+.dev-anim .dst.ok { fill: var(--acc2); font-weight: 700; }
+.dev-anim .dstand { fill: var(--line); }
+.dev-anim .dbub { fill: var(--panel); stroke: var(--acc); stroke-width: 2; }
+.dev-anim .dbubfix { fill: var(--panel); }
+.dev-anim .dbtx { font-size: 14.5px; font-weight: 600; fill: var(--ink); text-anchor: middle; }
+.dev-anim .dshirt { fill: var(--acc); }
+.dev-anim .dskin { fill: #c98f62; }
+.dev-anim .dhair { fill: #2b2230; }
+.dev-anim .deye { fill: #1c1622; }
+.dev-anim .dsmile { fill: none; stroke: #1c1622; stroke-width: 2.5; stroke-linecap: round; }
+.dev-anim .dsmile.rb { stroke: var(--panel); }
+.dev-anim .dhead { animation: 14s linear infinite both; transform-box: fill-box; transform-origin: center bottom; }
+.dev-anim .dblink { animation: dev-blink 4s linear infinite; transform-box: fill-box; transform-origin: center; }
+.dev-anim .dbot { animation: dev-float 2.4s ease-in-out infinite; }
+.dev-anim .drob { fill: var(--acc2); }
+.dev-anim .dreye { fill: var(--panel); }
+.dev-anim .dant { stroke: var(--acc2); stroke-width: 4; }
+.dev-anim .dbulb { fill: var(--warn); animation: dev-pulse 1.2s ease-in-out infinite; }
+.dev-anim .dcore { fill: var(--panel); animation: dev-pulse 1.2s ease-in-out infinite; }
+.dev-anim .ddesk { fill: var(--muted); }
+.dev-anim .ddeskleg { fill: var(--line); }
+.dev-anim .dlap { fill: var(--panel2); stroke: var(--muted); stroke-width: 2; }
+.dev-anim .dlogo { fill: var(--acc); }
+.dev-anim .dtype { animation: dev-type .28s ease-in-out infinite; }
+.dev-anim .dtype.t2 { animation-delay: .14s; }
+.dev-anim .ddot { fill: var(--line); }
+.dev-anim .ddoton { fill: var(--acc2); }
+.dev-anim .dcap { font-size: 17px; font-weight: 700; fill: var(--ink); text-anchor: middle; }
+@keyframes dev-blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+@keyframes dev-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes dev-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+@keyframes dev-type { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes dl0 { 0%,22%{transform:scaleX(0)}26%,97%{transform:scaleX(1)}98%,100%{transform:scaleX(0)} }
+@keyframes dl1 { 0%,26%{transform:scaleX(0)}30%,97%{transform:scaleX(1)}98%,100%{transform:scaleX(0)} }
+@keyframes dl2 { 0%,30%{transform:scaleX(0)}34%,97%{transform:scaleX(1)}98%,100%{transform:scaleX(0)} }
+@keyframes dl3 { 0%,34%{transform:scaleX(0)}38%,97%{transform:scaleX(1)}98%,100%{transform:scaleX(0)} }
+@keyframes dl4 { 0%,38%{transform:scaleX(0)}42%,97%{transform:scaleX(1)}98%,100%{transform:scaleX(0)} }
+@keyframes dl5 { 0%,42%{transform:scaleX(0)}46%,97%{transform:scaleX(1)}98%,100%{transform:scaleX(0)} }
+@keyframes dscan { 0%,66%{transform:translateY(0);opacity:0}67%{transform:translateY(0);opacity:.9}83%{transform:translateY(88px);opacity:.9}84%,100%{transform:translateY(88px);opacity:0} }
+@keyframes dnod { 0%,84%,100%{transform:rotate(0)}87%{transform:rotate(5deg)}90%{transform:rotate(-1deg)}93%{transform:rotate(5deg)}96%{transform:rotate(0)} }
+@keyframes dc0 { 0%{opacity:1}17%{opacity:1}18%{opacity:0}100%{opacity:0} }
+@keyframes dc1 { 0%{opacity:0}17%{opacity:0}18%{opacity:1}49%{opacity:1}50%{opacity:0}100%{opacity:0} }
+@keyframes dc2 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}65%{opacity:1}66%{opacity:0}100%{opacity:0} }
+@keyframes dc3 { 0%{opacity:0}65%{opacity:0}66%{opacity:1}83%{opacity:1}84%{opacity:0}100%{opacity:0} }
+@keyframes dc4 { 0%{opacity:0}83%{opacity:0}84%{opacity:1}100%{opacity:1} }
+@keyframes dd0 { 0%{opacity:1}17%{opacity:1}18%{opacity:0}100%{opacity:0} }
+@keyframes dd1 { 0%{opacity:0}17%{opacity:0}18%{opacity:1}49%{opacity:1}50%{opacity:0}100%{opacity:0} }
+@keyframes dd2 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}65%{opacity:1}66%{opacity:0}100%{opacity:0} }
+@keyframes dd3 { 0%{opacity:0}65%{opacity:0}66%{opacity:1}83%{opacity:1}84%{opacity:0}100%{opacity:0} }
+@keyframes dd4 { 0%{opacity:0}83%{opacity:0}84%{opacity:1}100%{opacity:1} }
+@keyframes ds0 { 0%{opacity:0}49%{opacity:0}50%{opacity:1}57%{opacity:1}58%{opacity:0}100%{opacity:0} }
+@keyframes ds1 { 0%{opacity:0}57%{opacity:0}58%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes dflow { 0%{opacity:0}19%{opacity:0}20%{opacity:1}62%{opacity:1}63%{opacity:0}100%{opacity:0} }
+@keyframes db0 { 0%{opacity:0}1%{opacity:0}2%{opacity:1}17%{opacity:1}18%{opacity:0}100%{opacity:0} }
+@keyframes db1 { 0%{opacity:0}19%{opacity:0}20%{opacity:1}48%{opacity:1}49%{opacity:0}100%{opacity:0} }
+@keyframes db2 { 0%{opacity:0}57%{opacity:0}58%{opacity:1}65%{opacity:1}66%{opacity:0}100%{opacity:0} }
+@keyframes db3 { 0%{opacity:0}66%{opacity:0}67%{opacity:1}83%{opacity:1}84%{opacity:0}100%{opacity:0} }
+@keyframes db4 { 0%{opacity:0}84%{opacity:0}85%{opacity:1}97%{opacity:1}98%{opacity:0}100%{opacity:0} }
+@keyframes dty { 0%{opacity:0}1%{opacity:0}2%{opacity:1}17%{opacity:1}18%{opacity:0}66%{opacity:0}67%{opacity:1}72%{opacity:1}73%{opacity:0}100%{opacity:0} }
+@media (prefers-reduced-motion: reduce) { .dev-anim .d, .dev-anim .dhead, .dev-anim .dblink, .dev-anim .dbot, .dev-anim .dbulb, .dev-anim .dcore, .dev-anim .dtype { animation: none; } .dev-anim .x { display: none; } }
+
+/* careers: role cards fill the slide */
+.roles { grid-template-rows: 1fr 1fr; min-height: 0; }
+.roles .card { padding: 20px; }
+.roles .card h3 { font-size: 21px; line-height: 1.25; margin-bottom: 10px; }
+.roles .card .one { font-size: 17px; }
+.roles .card .more p { font-size: 15.5px; }
+
+/* three shifts: wide rows beside the animation */
+.shifts { flex: 1; min-width: 0; gap: 14px; }
+.shifts .card { flex: 1; display: grid; grid-template-columns: 130px 1fr; grid-template-rows: auto auto; align-content: center; column-gap: 18px; padding: 16px 24px; }
+.shifts .ico { grid-row: 1 / span 2; align-self: center; margin: 0; font-size: 34px; white-space: nowrap; }
+.shifts .card h3 { font-size: 25px; margin-bottom: 6px; }
+.shifts .card p { font-size: 18px; line-height: 1.4; }
+
+/* break slide: everything centred */
+.break-c { flex: 1; gap: 22px; align-items: center; text-align: center; }
+.break-c .btns { justify-content: center; }

@@ -208,6 +208,7 @@
     let i = -1, timer = null;
     const render = () => {
       steps.forEach((s, k) => { s.classList.toggle('shown', k <= i); s.classList.toggle('cur', k === i); });
+      slide.dataset.stepAt = i + 1;
       slide.querySelectorAll('[data-node-id]').forEach((n) => n.classList.remove('hot'));
       const node = steps[i]?.dataset.node;
       if (node) node.split(' ').forEach((id) => slide.querySelector(`[data-node-id="${id}"]`)?.classList.add('hot'));

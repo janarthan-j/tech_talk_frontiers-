@@ -1,16 +1,26 @@
-"""Campus Helpdesk Agent — the agent built step by step in the Build section.
+"""Campus Helpdesk Agent: the agent built step by step in the Build section.
 
-Run:
-    pip install anthropic
-    set ANTHROPIC_API_KEY=...        (Windows)   /   export ANTHROPIC_API_KEY=...  (macOS/Linux)
-    python demo/helpdesk_agent.py
+Runs on a free model through OpenRouter, so students can try it without paying.
+
+1. Sign in at https://openrouter.ai and create a key at https://openrouter.ai/keys
+2. pip install openai
+3. set OPENROUTER_API_KEY=...        (Windows)   /   export OPENROUTER_API_KEY=...  (macOS/Linux)
+4. python demo/helpdesk_agent.py
+
+Free models change often. Current list: https://openrouter.ai/models?max_price=0
+Pick one that supports tools, and don't send private data to free models.
 """
 import json
+import os
 import pathlib
 
-import anthropic
+from openai import OpenAI
 
-MODEL = "claude-sonnet-5-5"
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.environ.get("OPENROUTER_API_KEY", "missing"),
+)
+MODEL = "nvidia/nemotron-3.5-lightning:free"
 MAX_STEPS = 8
 MEM = pathlib.Path("memory.json")
 
@@ -20,11 +30,9 @@ SYSTEM = """You are CampusHelp, the helpdesk agent for our university.
 - Always ask before creating a ticket."""
 
 # ---------- tools (fake data so the demo always works) ----------
-LIBRARY = {
-    "clean code": {"available": False, "due_back": "2026-10-25"},
-    "sicp": {"available": True, "shelf": "QA76.6"},
-    "designing data-intensive applications": {"available": True, "shelf": "QA76.9"},
-}
+# "Import" the catalogue from a JSON file, the way an app would load a database table.
+_books = json.loads((pathlib.Path(__file__).parent / "library.json").read_text(encoding="utf-8"))["books"]
+LIBRARY = {book["title"].lower(): book for book in _books}
 FAQ = {
     "wifi": "Wi-Fi password resets are done at the IT desk, Block B, 9am-4pm.",
     "exam": "Exam timetables are published on the student portal two weeks before exams.",
@@ -54,37 +62,40 @@ def create_ticket(title, category):
 FUNCS = {"check_book": check_book, "search_faq": search_faq, "create_ticket": create_ticket}
 RISKY = {"create_ticket"}
 
+
+def tool(name, description, properties, required):
+    return {
+        "type": "function",
+        "function": {
+            "name": name,
+            "description": description,
+            "parameters": {"type": "object", "properties": properties, "required": required},
+        },
+    }
+
+
 TOOLS = [
-    {
-        "name": "check_book",
-        "description": "Check if a library book is available. Returns availability, shelf or due-back date.",
-        "input_schema": {
-            "type": "object",
-            "properties": {"title": {"type": "string", "description": "Book title"}},
-            "required": ["title"],
+    tool(
+        "check_book",
+        "Check if a library book is available. Returns availability, shelf or due-back date.",
+        {"title": {"type": "string", "description": "Book title"}},
+        ["title"],
+    ),
+    tool(
+        "search_faq",
+        "Search the helpdesk FAQ for general questions (Wi-Fi, exams, library hours).",
+        {"query": {"type": "string"}},
+        ["query"],
+    ),
+    tool(
+        "create_ticket",
+        "Create a helpdesk ticket for a student problem. Use only after confirming details with the user.",
+        {
+            "title": {"type": "string", "description": "One-line summary"},
+            "category": {"type": "string", "enum": ["library", "it", "exams"]},
         },
-    },
-    {
-        "name": "search_faq",
-        "description": "Search the helpdesk FAQ for general questions (Wi-Fi, exams, library hours).",
-        "input_schema": {
-            "type": "object",
-            "properties": {"query": {"type": "string"}},
-            "required": ["query"],
-        },
-    },
-    {
-        "name": "create_ticket",
-        "description": "Create a helpdesk ticket for a student problem. Use only after confirming details with the user.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "title": {"type": "string", "description": "One-line summary"},
-                "category": {"type": "string", "enum": ["library", "it", "exams"]},
-            },
-            "required": ["title", "category"],
-        },
-    },
+        ["title", "category"],
+    ),
 ]
 
 
@@ -117,37 +128,43 @@ def remember(question, answer):
 
 # ---------- the loop ----------
 def ask(question):
-    client = anthropic.Anthropic()  # created here so local_agent.py can import tools without a key
-    messages = load_memory() + [{"role": "user", "content": question}]
+    messages = (
+        [{"role": "system", "content": SYSTEM}]
+        + load_memory()
+        + [{"role": "user", "content": question}]
+    )
     for step in range(MAX_STEPS):
-        resp = client.messages.create(
-            model=MODEL, max_tokens=1024, system=SYSTEM, tools=TOOLS, messages=messages
-        )
-        print(f"[step {step}] stop_reason={resp.stop_reason}")
-        messages.append({"role": "assistant", "content": resp.content})
+        resp = client.chat.completions.create(model=MODEL, messages=messages, tools=TOOLS)
+        msg = resp.choices[0].message
+        messages.append(msg)
 
-        if resp.stop_reason != "tool_use":
-            answer = "".join(b.text for b in resp.content if b.type == "text")
-            remember(question, answer)
-            return answer
+        if not msg.tool_calls:
+            print(f"[step {step}] model → final answer")
+            remember(question, msg.content)
+            return msg.content
 
-        results = []
-        for block in resp.content:
-            if block.type == "tool_use":
-                output = run_tool(block.name, block.input)
-                print(f"[log] tool={block.name} args={block.input} -> {output}")
-                results.append(
-                    {"type": "tool_result", "tool_use_id": block.id, "content": json.dumps(output)}
-                )
-        messages.append({"role": "user", "content": results})
+        for call in msg.tool_calls:
+            print(f"[step {step}] model → tool_calls: {call.function.name}")
+            args = json.loads(call.function.arguments or "{}")
+            output = run_tool(call.function.name, args)
+            print(f"[log] tool={call.function.name} args={args} -> {output}")
+            messages.append(
+                {"role": "tool", "tool_call_id": call.id, "content": json.dumps(output)}
+            )
     return "Sorry, I couldn't finish that within the step limit."
 
 
-if __name__ == "__main__":
-    print("CampusHelp — type 'quit' to exit")
+def chat():
+    print(f"CampusHelp on {MODEL} (type 'quit' to exit)")
     while True:
         q = input("\nYou: ").strip()
         if q.lower() in {"quit", "exit"}:
             break
         if q:
             print("\nCampusHelp:", ask(q))
+
+
+if __name__ == "__main__":
+    if "OPENROUTER_API_KEY" not in os.environ:
+        raise SystemExit("Set OPENROUTER_API_KEY first. Create a key at https://openrouter.ai/keys")
+    chat()
