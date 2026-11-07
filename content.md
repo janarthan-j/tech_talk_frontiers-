@@ -22,7 +22,7 @@ Total: **77 slides** across 9 sections (sub-slides like 14a, 26a, 27a, 28a added
 ### Slide 1 — Title
 - **Beyond the Chat Window**
 - *How AI Is Changing the Way We Build Software*
-- Speaker name · IEEE Student Branch · date
+- Janarthan Jeyachandran, Senior Software Engineer, SenzMate Pvt Ltd · Frontiers in Tech 15.0 · IEEE Student Branch, Rajarata University of Sri Lanka
 - 🖼 IMAGE: `images/title-bg.jpg` — abstract tech / code background (optional)
 - 🖼 IMAGE: `images/ieee-logo.png` — branch / university logo
 - 🗣 NOTES: Welcome. Quick intro of yourself. Promise: by the end, everyone understands how an agent works and has seen one built live.
@@ -827,7 +827,7 @@ while True:
 
 ### Slide 55 — Q&A + Thank You
 - **Questions?**
-- Speaker name · email · LinkedIn · GitHub
+- Janarthan Jeyachandran · GitHub: github.com/janarthan-j
 - 🖼 IMAGE: `images/qr-slides.png` — QR to slides / code repo
 - 🖼 IMAGE: `images/qr-feedback.png` — QR to feedback form
 - 🖼 IMAGE: `images/speaker.jpg` — speaker photo (optional)

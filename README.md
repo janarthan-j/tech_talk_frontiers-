@@ -1,5 +1,8 @@
 # Beyond the Chat Window: How AI Is Changing the Way We Build Software
 
+**Frontiers in Tech 15.0** · IEEE Student Branch, Rajarata University of Sri Lanka
+**Speaker:** Janarthan Jeyachandran, Senior Software Engineer, SenzMate Pvt Ltd
+
 A 2-hour interactive session for university students on new trends in software development, AI tools for production-ready applications, AI agents, and new AI-driven roles in industry.
 
 ## Audience
